@@ -1,0 +1,54 @@
+<p>
+  <strong>Title:</strong>
+  <%= @mer.title %>
+</p>
+ 
+<p>
+  <strong>Content:</strong>
+  <%= @mer.text %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @mer.tag_list %>
+</p>
+
+<h2>Comments</h2>
+<p>
+ <% @mer.comments.each do |comment| %>
+  <p>
+  <strong>Commenter:</strong>
+  <%= comment.commenter %>
+  </p>
+  <p> 
+  <strong>Comment:</strong>
+  <%= comment.body %>
+  </p>
+  <p>
+    <%= link_to 'Delete above comment', [comment.mer, comment],
+                 method: :delete,
+                 data: { confirm: 'Are you sure?' } %>
+  </p>
+  <br />
+ <% end %>
+</p>
+
+<h2>Add a comment:</h2>
+<%= form_for([@mer, @mer.comments.build]) do |f| %>
+  <p>
+    <%= f.label :commenter %><br />
+    <%= f.text_field :commenter %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+  
+<%= link_to 'Home', root_path %>
+| <%= link_to 'Edit myNotes', edit_mer_path(@mer) %>
+| <%= link_to 'Show myNotes', mers_path %>

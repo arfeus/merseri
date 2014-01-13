@@ -1,0 +1,21 @@
+<h1>Show myNotes</h1>
+<%= link_to 'New myNote', new_mer_path %>
+
+
+<div="mers"> 
+  <% @mers.each do |mer| %>
+      <h4><%= link_to mer.title, mer %></h4>
+      <%= simple_format(mer.text) %>
+	  <p>Tags: <%= raw mer.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+	  <p><%=pluralize(mer.comments.count,'comment')%></p>
+	  <%= link_to 'Show', mer_path(mer) %>
+	  | <%= link_to 'Edit', edit_mer_path(mer) %>
+	  | <%= link_to 'Delete', mer_path(mer),
+		  	method: :delete, data: { Confirm: 'Are you sure???' }%>
+	  <br />
+	  <br />
+	  <br />
+  <% end %>
+</div>
+
+<p><%= link_to 'Home', root_path %></p>

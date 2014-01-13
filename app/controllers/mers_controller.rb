@@ -1,0 +1,66 @@
+class MersController < ApplicationController
+  def new
+    @mer = Mer.new
+  end
+  
+  def create
+    @mer = Mer.new(mer_params)
+
+    if mer_params[:title] == "" then
+      @mer.text = @mer.text.sub("---",'')
+      @input = @mer.text.split("_")
+      @mer.title = @input[0]
+      @mer.tag_list = @input[1]
+      @mer.text = @input[2]
+      if @mer.save
+        redirect_to @mer
+      else
+        render 'new'
+      end  
+    else
+       if @mer.save
+         redirect_to @mer
+       else
+         render 'new'
+       end
+    end
+  end
+  
+  def show
+    @mer = Mer.find(params[:id])
+  end
+  
+  def index
+    if params[:tag]
+      @mers = Mer.tagged_with(params[:tag])
+    else
+      @mers = Mer.all
+    end
+  end
+  
+  def edit
+    @mer = Mer.find(params[:id])
+  end
+  
+  def update
+    @mer = Mer.find(params[:id])
+    if @mer.update(mer_params)
+      redirect_to @mer
+    else
+      render 'edit'
+    end
+  end
+  
+  def destroy
+    @mer = Mer.find(params[:id])
+    @mer.destroy
+    
+    redirect_to mers_path
+  end
+  
+  private
+    def mer_params
+      params.require(:mer).permit(:title, :text, :tag_list)
+    end   
+
+end
