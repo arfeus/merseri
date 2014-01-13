@@ -5,7 +5,7 @@ Merseri::Application.routes.draw do
     resources :comments
   end
   
-  root  'mers#new'
+  root  'welcome#index'
   match '/mers',      to: 'mers#index',  via: 'get'
   match '/mers/new',  to: 'mers#new',    via: 'get'
   match '/mers/edit', to: 'mers#edit',   via: 'get'
