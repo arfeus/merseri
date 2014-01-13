@@ -1,12 +1,13 @@
 Merseri::Application.routes.draw do
-  root 'welcome#index'
-  get 'tags/:tag', to: 'mers#index', as: :tag
   
   resources :mers do
     resources :tags
-    resources :comments 
+    resources :comments
   end
   
+  root  'welcome#index'
+  get 'tags/:tag', to: 'mers#index', as: :tag
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
