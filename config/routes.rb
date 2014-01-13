@@ -6,6 +6,8 @@ Merseri::Application.routes.draw do
   end
   
   root  'welcome#index'
+  match '/mers',  to: 'mers#show',   via: 'get'
+  
   get 'tags/:tag', to: 'mers#index', as: :tag
 
   
