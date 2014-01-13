@@ -5,12 +5,12 @@ Merseri::Application.routes.draw do
     resources :comments
   end
   
-  root  'welcome#index'
-  match '/mers',      to: 'mers#index',     via: 'get'
-  match '/mers/new',  to: 'mers#new',   via: 'get'
-  match '/mers/edit',  to: 'mers#edit',   via: 'get'
+  root  'mers#new'
+  match '/mers',      to: 'mers#index',  via: 'get'
+  match '/mers/new',  to: 'mers#new',    via: 'get'
+  match '/mers/edit', to: 'mers#edit',   via: 'get'
   
-  get 'tags/:tag', to: 'mers#index', as: :tag
+  get 'tags/:tag',    to: 'mers#index',   as: :tag
 
   
   # The priority is based upon order of creation: first created -> highest priority.
