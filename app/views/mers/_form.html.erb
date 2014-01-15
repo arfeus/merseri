@@ -22,8 +22,16 @@
    <%= f.text_area :text, size: "41x20" %>
   </p>
   
+  <p>
   <%= f.label :"Tags" %><br>
   <%= f.text_field :tag_list, size: "45x1"%>
+  </p>
+  
+  <% @mer.thumbs_up =  0  %>
+  <p> 
+	  <%= @mer.thumbs_up %>
+  <%= f.hidden_field :thumbs_up %>
+  </p>
   
   <p>
    <%= f.submit "By clicking the button you accept the terms and conditions" %>

@@ -13,6 +13,26 @@
   <%= @mer.tag_list %>
 </p>
 
+<p>
+  <strong>thumbsUp = </strong>
+  <%= @mer.thumbs_up %>
+</p>
+<p>
+	<%= form_for @mer do |f| %>
+	  <% @mer.thumbs_up = @mer.thumbs_up + 1  %>
+	  <%= f.hidden_field :thumbs_up %>
+	  <%= image_submit_tag("thumbsUp.jpg") %>
+	<% end %>
+</p>
+
+<p>
+	<%= form_for @mer do |f| %>
+	  <% @mer.thumbs_up = @mer.thumbs_up - 2  %>
+	  <%= f.hidden_field :thumbs_up %>
+	  <%= f.submit "thumbsDown", size: 50 %>
+	<% end %>
+</p>
+
 <h2>Comments</h2>
 <p>
  <% @mer.comments.each do |comment| %>

@@ -34,7 +34,7 @@ class MersController < ApplicationController
     if params[:tag]
       @mers = Mer.tagged_with(params[:tag])
     else
-      @mers = Mer.all
+      @mers = Mer.all(:order => 'thumbs_up DESC')
     end
   end
   
@@ -44,8 +44,12 @@ class MersController < ApplicationController
   
   def update
     @mer = Mer.find(params[:id])
+    
     if @mer.update(mer_params)
-      redirect_to @mer
+      if params[:commit] == 'thumbs'
+         redirect_to mers_path
+      else redirect_to @mer
+      end
     else
       render 'edit'
     end
@@ -60,7 +64,7 @@ class MersController < ApplicationController
   
   private
     def mer_params
-      params.require(:mer).permit(:title, :text, :tag_list)
+      params.require(:mer).permit(:title, :text, :thumbs_up, :tag_list)
     end   
 
 end

@@ -7,7 +7,27 @@
       <h4><%= link_to mer.title, mer %></h4>
       <%= simple_format(mer.text) %>
 	  <p>Tags: <%= raw mer.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
-	  <p><%=pluralize(mer.comments.count,'comment')%></p>
+	  <p><%= pluralize(mer.comments.count,'comment') %> | thumbs_up = <%= mer.thumbs_up %></p>
+	  
+	  <p>
+	  	<%= form_for mer do |f| %>
+	  	  <% mer.thumbs_up = mer.thumbs_up + 1  %>
+	  	  <%= f.hidden_field :thumbs_up %>
+	  	  <%= f.submit "thumbs" %>
+		  Up
+	  	<% end %>
+	  </p>
+
+	  <p>
+	  	<%= form_for mer do |f| %>
+	  	  <% mer.thumbs_up = mer.thumbs_up - 2  %>
+	  	  <%= f.hidden_field :thumbs_up %>
+	  	  <%= f.submit "thumbs" %>
+		  Down
+	  	<% end %>
+	  </p>
+	  
+	  
 	  <%= link_to 'Show', mer_path(mer) %>
 	  | <%= link_to 'Edit', edit_mer_path(mer) %>
 	  | <%= link_to 'Delete', mer_path(mer),
