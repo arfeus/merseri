@@ -1,5 +1,7 @@
 <h1>Show myNotes</h1>
 <%= link_to 'New myNote', new_mer_path %>
+|
+<%= link_to 'Print all myNotes', printAll_path %>
 
 
 <div="mers"> 
@@ -27,8 +29,8 @@
 	  	<% end %>
 	  </p>
 	  
-	  
-	  <%= link_to 'Show', mer_path(mer) %>
+	  <%= link_to 'Print', printSelected_path(:id => mer.id) %>
+	  | <%= link_to 'Show', mer_path(mer) %>
 	  | <%= link_to 'Edit', edit_mer_path(mer) %>
 	  | <%= link_to 'Delete', mer_path(mer),
 		  	method: :delete, data: { Confirm: 'Are you sure???' }%>

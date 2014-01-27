@@ -1,0 +1,17 @@
+<h1>Printing#printAll</h1>
+<h3>Print all myNotes</h3>
+
+
+
+<div="mers">
+______________________________<br />
+
+<% @mers.each do |mer| %>
+    <br />
+    <%= link_to mer.title, mer %>
+    <%= simple_format(mer.text) %>
+	______________________________
+    <br />
+<% end %>
+
+</div>

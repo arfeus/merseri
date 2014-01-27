@@ -55,6 +55,7 @@ class MersController < ApplicationController
     end
   end
   
+  
   def destroy
     @mer = Mer.find(params[:id])
     @mer.destroy
