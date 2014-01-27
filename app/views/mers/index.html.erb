@@ -5,6 +5,14 @@
 | <%= link_to 'Show myNotes', mers_path %>
 
 <p>
+<div id="tag_cloud">
+  <% tag_cloud Mer.tag_counts, %w{s m l} do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
+</p>
+
+<p>
 <%= form_tag(mers_path, :method => "get", id: "search-form") do %>
 	<%= text_field_tag :search, params[:search], placeholder: "Search title" %>
 	<%= submit_tag "Search", :name => nil %>
