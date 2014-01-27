@@ -31,10 +31,13 @@ class MersController < ApplicationController
   end
   
   def index
-    if params[:tag]
+    
+    if params[:search]
+      @mers = Mer.search(params[:search]).order('thumbs_up DESC')
+    elsif params[:tag]
       @mers = Mer.tagged_with(params[:tag])
     else
-      @mers = Mer.all(:order => 'thumbs_up DESC')
+      @mers = Mer.all.order('thumbs_up DESC')
     end
   end
   
@@ -65,7 +68,7 @@ class MersController < ApplicationController
   
   private
     def mer_params
-      params.require(:mer).permit(:title, :text, :thumbs_up, :tag_list)
+      params.require(:mer).permit(:title, :text, :thumbs_up, :tag_list, :search)
     end   
 
 end

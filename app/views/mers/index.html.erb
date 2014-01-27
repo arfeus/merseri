@@ -2,7 +2,14 @@
 <%= link_to 'New myNote', new_mer_path %>
 |
 <%= link_to 'Print all myNotes', printAll_path %>
+| <%= link_to 'Show myNotes', mers_path %>
 
+<p>
+<%= form_tag(mers_path, :method => "get", id: "search-form") do %>
+	<%= text_field_tag :search, params[:search], placeholder: "Search title" %>
+	<%= submit_tag "Search", :name => nil %>
+<% end %>
+</p>
 
 <div="mers"> 
   <% @mers.each do |mer| %>

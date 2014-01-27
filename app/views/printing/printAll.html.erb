@@ -1,6 +1,8 @@
 <h1>Printing#printAll</h1>
 <h3>Print all myNotes</h3>
-
+<p>
+  <%= link_to 'Show myNotes', mers_path %>
+</p>
 
 
 <div="mers">
@@ -12,6 +14,8 @@ ______________________________<br />
     <%= simple_format(mer.text) %>
 	______________________________
     <br />
+	
 <% end %>
 
 </div>
+
