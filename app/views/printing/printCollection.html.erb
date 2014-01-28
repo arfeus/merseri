@@ -1,0 +1,15 @@
+<h1>Printing#printCollection</h1>
+<h3>This is a print</h3>
+
+  <% @collection.each do |c| %>
+  <hr  />
+  <strong>Note:</strong>
+  <br />
+    <%= c.title %>
+  <br />
+  <strong>Future explanation:</strong>
+  <br />
+    <%= c.text %>
+
+  <hr  />
+  <% end %>

@@ -33,11 +33,11 @@ class MersController < ApplicationController
   def index
     
     if params[:search]
-      @mers = Mer.search(params[:search]).order('thumbs_up DESC')
+      @mers = Mer.search(params[:search]).order('vote DESC')
     elsif params[:tag]
       @mers = Mer.tagged_with(params[:tag])
     else
-      @mers = Mer.all.order('thumbs_up DESC')
+      @mers = Mer.all.order('vote DESC')
     end
   end
   
@@ -49,7 +49,7 @@ class MersController < ApplicationController
     @mer = Mer.find(params[:id])
     
     if @mer.update(mer_params)
-      if params[:commit] == 'thumbs'
+      if params[:commit] == 'Vote'
          redirect_to mers_path
       else redirect_to @mer
       end
@@ -68,7 +68,7 @@ class MersController < ApplicationController
   
   private
     def mer_params
-      params.require(:mer).permit(:title, :text, :thumbs_up, :tag_list, :search)
+      params.require(:mer).permit(:title, :text, :vote, :tag_list, :search)
     end   
 
 end

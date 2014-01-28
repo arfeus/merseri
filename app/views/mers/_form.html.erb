@@ -13,13 +13,13 @@
   <% end %>
  
   <p>
-   <%= f.label :"Title" %><br>
-   <%= f.text_field :title, size: "45x1" %>
+   <%= f.label :"Note" %><br>
+   <%= f.text_field :title %>
   </p>
    
   <p>
-   <%= f.label :"Content" %><br>
-   <%= f.text_area :text, size: "41x20" %>
+   <%= f.label :"Further explanation" %><br>
+   <%= f.text_area :text, :size => "20x10" %>
   </p>
   
   <p>
@@ -27,10 +27,9 @@
   <%= f.text_field :tag_list, size: "45x1"%>
   </p>
   
-  <% @mer.thumbs_up =  0  %>
   <p> 
-	  <%= @mer.thumbs_up %>
-  <%= f.hidden_field :thumbs_up %>
+    <% @mer.vote = 0 %>
+  	<%= f.hidden_field :vote %>
   </p>
   
   <p>

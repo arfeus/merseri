@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140115104641) do
+ActiveRecord::Schema.define(version: 20140127151947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(version: 20140115104641) do
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "thumbs_up"
+    t.integer  "vote"
   end
 
-  add_index "mers", ["thumbs_up"], name: "index_mers_on_thumbs_up", using: :btree
+  add_index "mers", ["vote"], name: "index_mers_on_vote", using: :btree
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"

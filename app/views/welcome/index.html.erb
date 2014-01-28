@@ -1,4 +1,16 @@
-<h1>Welcome to Merseri 1.0</h1>
-<p>This is a very first line of the Merseri app</p>
-<%= link_to 'New myNote', new_mer_path %>
-| <%= link_to "Show all myNotes", controller: "mers" %>
+<h1>Search notes</h1>
+<p>
+<%= form_tag(mers_path, :method => "get", id: "search-form") do %>
+	<%= text_field_tag :search, params[:search], placeholder: "Search notes" %>
+	<%= submit_tag "Search", :name => nil %>
+<% end %>
+</p>
+
+<div id="tag_cloud">
+  <% tag_cloud Mer.tag_counts, %w{s m l} do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
+
+
+

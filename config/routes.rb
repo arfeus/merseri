@@ -5,9 +5,11 @@ Merseri::Application.routes.draw do
     resources :comments
   end
   
-  root  'welcome#index' 
-  match '/printing/printAll',      to: 'printing#printAll',        via: 'get', as: 'printAll'
-  match '/printing/printSelected', to: 'printing#printSelected',   via: 'get', as: 'printSelected'
+  root  'welcome#index'
+  match '/printing/addCollection',   to: 'printing#addCollection',   via: 'get', as: 'addCollection'
+  match '/printing/printCollection', to: 'printing#printCollection', via: 'get', as: 'printCollection' 
+  match '/printing/printAll',        to: 'printing#printAll',        via: 'get', as: 'printAll'
+  match '/printing/printSelected',   to: 'printing#printSelected',   via: 'get', as: 'printSelected'
   
   get 'tags/:tag',    to: 'mers#index',   as: :tag
 
