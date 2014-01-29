@@ -45,14 +45,14 @@ h1 {
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
-  text-align: center;
+  text-align: left;
 }
 
 h2 {
   font-size: 1.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
-  text-align: center;
+  text-align: left;
   font-weight: normal;
 }
 
@@ -145,7 +145,7 @@ aside {
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 100%;
+  width: 60%;
   padding: 10px;
   margin-bottom: 15px;
   @include box_sizing;
