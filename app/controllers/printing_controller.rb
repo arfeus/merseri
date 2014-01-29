@@ -13,7 +13,7 @@ class PrintingController < ApplicationController
   end
   
   def printCollection
-    redirect_to addCollection_path(:id => 2)
+    @mer = Mer.find(2)
   end
   
 end
