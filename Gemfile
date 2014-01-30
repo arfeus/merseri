@@ -4,16 +4,16 @@ ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
+gem 'pg'
+gem 'rails_12factor'
 
 # Use postgre as the database for Active Record
 group :development do
-  gem 'pg'
-  gem 'rails_12factor'
+
 end
 
 group :production do
-  gem 'pg'
-  gem 'rails_12factor'
+
 end
 
 # Use SCSS for stylesheets
