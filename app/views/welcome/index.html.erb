@@ -1,7 +1,7 @@
-<h1>Search notes</h1>
+<h1>Search ideas</h1>
 <p>
 <%= form_tag(mers_path, :method => "get", id: "search-form") do %>
-	<%= text_field_tag :search, params[:search], placeholder: "Search notes" %>
+	<%= text_field_tag :search, params[:search], placeholder: "Search ideas" %>
 	<%= submit_tag "Search", :name => nil %>
 <% end %>
 </p>

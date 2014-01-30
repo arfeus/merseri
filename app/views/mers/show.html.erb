@@ -1,10 +1,10 @@
 <p>
-  <h1>Note:</h1>
+  <h1>Idea:</h1>
   <%= @mer.title %>
 </p>
  
 <p>
-  <h1>Further explanation:</h1>
+  <h1>Notes:</h1>
   <%= @mer.text %>
 </p>
 
@@ -39,7 +39,7 @@
 <p>
  <% @mer.comments.each do |comment| %>
   <p>
-  <strong>Commenter:</strong>
+  <strong>Name:</strong>
   <%= comment.commenter %>
   </p>
   <p> 
@@ -62,7 +62,7 @@
     <%= f.text_field :commenter %>
   </p>
   <p>
-    <%= f.label :Text %><br />
+    <%= f.label :Comment %><br />
     <%= f.text_area :body %>
   </p>
   <p>
