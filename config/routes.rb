@@ -1,6 +1,8 @@
 Merseri::Application.routes.draw do
 
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+  
   resources :mers do
     resources :tags
     resources :comments
@@ -8,6 +10,8 @@ Merseri::Application.routes.draw do
   
   root  'welcome#index'
   match '/signup',                   to: 'users#new',                via: 'get'
+  match '/signin',                   to: 'sessions#new',             via: 'get'
+  match '/signout',                  to: 'sessions#destroy',         via: 'delete'
   match '/printing/addCollection',   to: 'printing#addCollection',   via: 'get', as: 'addCollection'
   match '/printing/printCollection', to: 'printing#printCollection', via: 'get', as: 'printCollection' 
   match '/printing/printAll',        to: 'printing#printAll',        via: 'get', as: 'printAll'

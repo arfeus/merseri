@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Merseri" %></title>
+	<title>merseri | <%= yield(:title) %></title>
+
     <%= csrf_meta_tags %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -52,6 +53,25 @@
 			  <li><%= link_to 'New idea', new_mer_path %></li>
               <li><%= link_to 'Ideas', mers_path  %></li>
 			  <li><%= link_to 'Show idea collection', printCollection_path %></li>
+			  <% if signed_in? %>
+			    <li><%= link_to "Users", users_path %></li>
+			    <li id="fat-menu" class="dropdown">
+			      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			        Account <b class="caret"></b>
+			      </a>
+			    <ul class="dropdown-menu">
+			  	  <li><%= link_to "Timer", new_joogatime_path %></li>
+			      <li><%= link_to "Profile", current_user %></li>
+			      <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+			      <li class="divider"></li>
+			      <li>
+			      <%= link_to "Sign out", signout_path, method: "delete" %>
+			     </li>
+			    </ul>
+			    </li>
+			    <% else %>
+			      <li><%= link_to "Sign in", signin_path %></li>
+			   <% end %>			  
             </ul>
           </div><!--/.nav-collapse -->
         </div>
