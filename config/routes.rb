@@ -1,11 +1,13 @@
 Merseri::Application.routes.draw do
-  
+
+  resources :users
   resources :mers do
     resources :tags
     resources :comments
   end
   
   root  'welcome#index'
+  match '/signup',                   to: 'users#new',                via: 'get'
   match '/printing/addCollection',   to: 'printing#addCollection',   via: 'get', as: 'addCollection'
   match '/printing/printCollection', to: 'printing#printCollection', via: 'get', as: 'printCollection' 
   match '/printing/printAll',        to: 'printing#printAll',        via: 'get', as: 'printAll'
