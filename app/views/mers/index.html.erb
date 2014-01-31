@@ -1,22 +1,16 @@
 <% provide(:title, 'Ideas') %>
 <h1>Ideas</h1>
 
-<p>
-<%= form_tag(mers_path, :method => "get", id: "search-form") do %>
-	<%= text_field_tag :search, params[:search], placeholder: "Search idea" %>
-	<%= submit_tag "Search", :name => nil %>
-<% end %>
-</p>
-<p>
-<div id="tag_cloud">
-  <% tag_cloud current_user.mers.tag_counts, %w{s m l} do |tag, css_class| %>
-    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-  <% end %>
-</div>
-</p>
+<div class="row">
+  <div class="span6 offset1">
+	  <%= render 'mers/search' %>
 
-<div="mers"> 
-  <% @mers.each do |mer| %>
+    <div id="tag_cloud">
+      <%= render 'mers/tagCloud' %>
+    </div>
+
+  <div="mers"> 
+    <% @mers.each do |mer| %>
   	  <hr />
       <h4><%= link_to mer.title, mer %></h4>
       <%= simple_format(mer.text) %>
@@ -39,5 +33,7 @@
 	  <br />
 	  <br />
 	  <br />
-  <% end %>
+    <% end %>
+  </div>
+ </div>
 </div>
