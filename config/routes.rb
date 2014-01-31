@@ -17,6 +17,9 @@ Merseri::Application.routes.draw do
   match '/printing/printAll',        to: 'printing#printAll',        via: 'get', as: 'printAll'
   match '/printing/printSelected',   to: 'printing#printSelected',   via: 'get', as: 'printSelected'
   
+  match '/on',   to: 'printing#adminon',   via: 'get', as: 'adminon'
+  match '/off',   to: 'printing#adminoff',   via: 'get', as: 'adminoff'
+  
   get 'tags/:tag',    to: 'mers#index',   as: :tag
 
   

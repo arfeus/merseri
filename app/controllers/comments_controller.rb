@@ -1,12 +1,12 @@
 class CommentsController < ApplicationController
   def create
-    @mer = Mer.find(params[:mer_id])
+    @mer = current_user.mers.find(params[:mer_id])
     @comment = @mer.comments.create(comment_params)
     redirect_to mer_path(@mer)
   end
   
   def destroy
-    @mer = Mer.find(params[:mer_id])
+    @mer = current_user.mers.find(params[:mer_id])
     @comment = @mer.comments.find(params[:id])
     @comment.destroy
     

@@ -1,14 +1,5 @@
 <% provide(:title, 'Print all') %>
 <h1>Printing#printCollection</h1>
-<h3>This is a print of idea id 2</h3>
+<h3>This is a link to all ideas of current user</h3>
 
-  <hr  />
-  <strong>Idea:</strong>
-  <br />
-    <%= @mer.title %>
-  <br />
-  <strong>Notes:</strong>
-  <br />
-    <%= @mer.text %>
-
-  <hr  />
+<%= link_to "All ideas", mers_path %>

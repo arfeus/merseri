@@ -1,19 +1,28 @@
 class PrintingController < ApplicationController
   def printSelected
-    @mer = Mer.find(params[:id])
+    @mer = current_user
   end
   
   
   def printAll
-    @mers = Mer.all
+    @mers = current_user.mers
   end
   
   def addCollection
-    @collection = Mer.find(params[:id])
+    @collection = current_user.mers.find(params[:id])
   end
   
   def printCollection
-    @mer = Mer.find(2)
   end
   
+  def adminon
+    current_user.update_attribute :admin, true
+    redirect_to root_path
+  end
+  
+  def adminoff
+    current_user.update_attribute :admin, false
+    redirect_to root_path
+  end
+
 end

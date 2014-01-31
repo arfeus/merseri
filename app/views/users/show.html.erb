@@ -2,9 +2,16 @@
 <div class="row">
   <aside class="span4">
     <section>
-      <h1>
-        <%= @user.name %>
-      </h1>
+      <p>
+        <%= @user.name %> 
+		<% if @user.admin %>
+		  <%=  " is an admin." %>
+		<% elsif %>
+		  <%=" is a user." %>
+		<% end %>
+      </p>
     </section>
   </aside>
 </div>
+
+
