@@ -1,15 +1,22 @@
-
 <% provide(:title, 'Welcome') %>
 
-<h1>Search ideas</h1>
-<div class="row">
-  <div class="span6 offset1">
-	  <%= render 'mers/search' %>
-  </div>
+<% if !current_user.nil? %>
 
-  <div class="span6 offset1">
-    <div id="tag_cloud">
-      <%= render 'mers/tagCloud' %>
-    </div>
+  <h1>Search ideas</h1>
+  <div class="row">
+    <div class="span6 offset1">
+  	   <%= render 'mers/search' %>
+
+      <div id="tag_cloud">
+        <%= render 'mers/tagCloud' %>
+      </div>
   </div>
-</div>
+ </div>
+  <% end %>
+  
+  <div class="row">
+    <div class="span6 offset1">
+  <%= link_to "Sign in please", signin_path %>
+
+  </div>
+ </div>
