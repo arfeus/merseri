@@ -10,13 +10,12 @@
       <div id="tag_cloud">
         <%= render 'mers/tagCloud' %>
       </div>
+    </div>
   </div>
- </div>
-  <% end %>
-  
+  <% elsif %> 
   <div class="row">
     <div class="span6 offset1">
-  <%= link_to "Sign in please", signin_path %>
-
+  	  <%= link_to "Sign in please", signin_path %>
+	<% end %>
   </div>
  </div>
