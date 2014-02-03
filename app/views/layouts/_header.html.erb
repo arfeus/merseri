@@ -1,8 +1,8 @@
-<div class="navbar navbar-fluid-top">
+<nav class="navbar navbar-default" role="navigation">
   <div class="navbar-inner">
   	<div class="container-fluid">
 	<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-	  <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+	  <a class="btn btn-navbar" data-target="#navbar-collapse" data-toggle="collapse">
       	 <span class="icon-bar"></span>
 		 <span class="icon-bar"></span>
 		 <span class="icon-bar"></span>
@@ -10,23 +10,20 @@
 	  <!-- Be sure to leave the brand out there if you want it shown -->
 	  <%= link_to "merseri", root_path, class: "brand" %>
 	  <!-- Everything you want hidden at 940px or less, place within here -->
-      <div class="nav-collapse collapse">
-        <ul class="nav">		  
+      <div class="nav-collapse collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav">		  
 		  <% if signed_in? %>
 		  	<li><%= link_to 'New idea', new_mer_path %></li>
           	<li><%= link_to 'Ideas', mers_path  %></li>
 		  	<li><%= link_to 'Show idea collection', printCollection_path %></li>
 		    <li><%= link_to "Users", users_path %></li>
-		    <li id="fat-menu" class="dropdown">
-		      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-		        Account <b class="caret"></b>
-		      </a>
+		    <li class="dropdown">
+		      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
 		    <ul class="dropdown-menu">
 		      <li><%= link_to "Profile", current_user %></li>
 		      <li><%= link_to "Settings", edit_user_path(current_user) %></li>
 		      <li class="divider"></li>
-		      <li><%= link_to "Sign out", signout_path, method: "delete" %>
-		      </li>
+		      <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
 		    </ul>
 		    </li>
 		  <% else %>
@@ -36,4 +33,4 @@
       </div><!--/.nav-collapse -->
     </div>
   </div>
-</div>
+</nav>
