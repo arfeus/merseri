@@ -1,8 +1,6 @@
 <% provide(:title, 'Ideas') %>
 <h1>Ideas</h1>
 
-<div class="row">
-  <div class="span6 offset1">
 	  <%= render 'mers/search' %>
 
     <div id="tag_cloud">
@@ -12,7 +10,7 @@
   <div="mers"> 
     <% @mers.each do |mer| %>
   	  <hr />
-      <h4><%= link_to mer.title, mer %></h4>
+      <h2><%= link_to mer.title, mer %></h2>
       <%= simple_format(mer.text) %>
 	  <p>Tags: <%= raw mer.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
 	  <p><%= pluralize(mer.comments.count,'comment') %> | vote = <%= mer.vote %></p>
@@ -32,8 +30,5 @@
 		  	method: :delete, data: { Confirm: 'Are you sure???' }%>
 	  <br />
 	  <br />
-	  <br />
     <% end %>
-  </div>
- </div>
-</div>
+	</div>

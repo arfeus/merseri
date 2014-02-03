@@ -1,17 +1,11 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="span4">
-    <section>
-      <p>
-        <%= @user.name %> 
-		<% if @user.admin %>
-		  <%=  " is an admin." %>
-		<% elsif %>
-		  <%=" is a user." %>
-		<% end %>
-      </p>
-    </section>
-  </aside>
-</div>
+
+
+	<%= @user.name %> 
+	<% if @user.admin %>
+  		<%=  " is an admin." %>
+  	  <% elsif %>
+  		<%=" is a user." %>
+	<% end %>
 
 

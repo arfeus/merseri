@@ -1,37 +1,29 @@
 <nav class="navbar navbar-default" role="navigation">
   <div class="navbar-inner">
-  	<div class="container-fluid">
-	<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-	  <a class="btn btn-navbar" data-target="#navbar-collapse" data-toggle="collapse">
-      	 <span class="icon-bar"></span>
-		 <span class="icon-bar"></span>
-		 <span class="icon-bar"></span>
-	  </a>
-	  <!-- Be sure to leave the brand out there if you want it shown -->
-	  <%= link_to "merseri", root_path, class: "brand" %>
-	  <!-- Everything you want hidden at 940px or less, place within here -->
-      <div class="nav-collapse collapse" id="navbar-collapse">
-        <ul class="nav navbar-nav">		  
-		  <% if signed_in? %>
-		  	<li><%= link_to 'New idea', new_mer_path %></li>
-          	<li><%= link_to 'Ideas', mers_path  %></li>
-		  	<li><%= link_to 'Show idea collection', printCollection_path %></li>
-		    <li><%= link_to "Users", users_path %></li>
-		    <li class="dropdown" role="menu">
-		      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>			  
-		    <ul class="dropdown-menu">				
-			  <li role="presentation"><%= link_to "Profile", current_user, role: "menuitem", tabindex: "-1"  %></li>		     
-		      <li role="presentation"><%= link_to "Settings", edit_user_path(current_user), role: "menuitem", tabindex: "-1" %></li>
-		      <li role="presentation" class="divider"></li>
-		      <li role="presentation"><%= link_to "Sign out", signout_path, method: "delete", role: "menuitem", tabindex: "-1" %></li>
-		    </ul>
-		    </li>
-			
-		  <% else %>
-		  	<li><%= link_to "Sign in", signin_path %></li>
-		  <% end %>			  
-        </ul>
-      </div><!--/.nav-collapse -->
-    </div>
+	<div class="container-fluid">
+		<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+		<a class="btn btn-navbar" data-target="#navbar-collapse" data-toggle="collapse">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</a>
+		<!-- Be sure to leave the brand out there if you want it shown -->
+		<%= link_to "merseri", root_path, class: "brand" %>
+		<!-- Everything you want hidden at 940px or less, place within here -->
+		<div class="nav-collapse collapse" id="navbar-collapse">
+			<ul class="nav navbar-nav">		  
+				<% if signed_in? %>
+				<li role="presentation"><%= link_to 'New idea', new_mer_path, role: "menuitem" %></li>
+				<li role="presentation"><%= link_to 'Ideas', mers_path, role: "menuitem"  %></li>
+				<li role="presentation"><%= link_to 'Show idea collection', printCollection_path, role: "menuitem" %></li>
+				<li role="presentation"><%= link_to "Users", users_path, role: "menuitem" %></li>
+				<li role="presentation"><%= link_to "Settings", edit_user_path(current_user), role: "menuitem" %></li>
+				<li role="presentation"><%= link_to "Sign out", signout_path, method: "delete", role: "menuitem" %></li>		
+				<% else %>
+				<li><%= link_to "Sign in", signin_path %></li>
+				<% end %>			  
+			</ul>
+		</div><!--/.nav-collapse -->
+	</div>
   </div>
 </nav>
