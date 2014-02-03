@@ -6,9 +6,7 @@ class Mer < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   
   validates :title, presence: true,
-                    length: { minimum: 1 }
-                    
-  validates :text, presence: true
+                    length: { minimum: 1, maximum: 255 }
                     
   def self.search(query)
    # where(:title, query) -> This would return an exact match of the query
