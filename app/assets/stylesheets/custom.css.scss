@@ -34,20 +34,21 @@ footer {
   margin-top: 80px;
   padding-top: 5px;
   border-top: 1px solid gray;
-  color: black;
+  color: gray;
   text-align: center;
   a {
     color: black;
     &:hover {
-      color: black;
+      color: gray;
     }
   }
   small {
     float: left;
+	margin-left: 10px;
   }
   ul {
     float: right;
-    list-style: none;
+	margin-right: 10px;
     li {
       float: left;
       margin-left: 10px;

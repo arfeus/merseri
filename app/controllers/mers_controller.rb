@@ -38,7 +38,11 @@ class MersController < ApplicationController
     elsif params[:tag]
       @mers = current_user.mers.tagged_with(params[:tag])
     else
+      if current_user.admin?
+        @mers = Mer.all
+      else
       @mers = current_user.mers.order('vote DESC')
+      end
     end
   end
   
