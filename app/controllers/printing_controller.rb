@@ -1,18 +1,18 @@
 class PrintingController < ApplicationController
-  def printSelected
+  def print_selected
     @mer = current_user
   end
   
   
-  def printAll
+  def print_all
     @mers = current_user.mers
   end
   
-  def addCollection
+  def add_collection
     @collection = current_user.mers.find(params[:id])
   end
   
-  def printCollection
+  def print_collection
   end
   
   def adminon
