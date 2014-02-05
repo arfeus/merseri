@@ -16,6 +16,8 @@ Merseri::Application.routes.draw do
   match '/printing/print_collection', to: 'printing#print_collection', via: 'get', as: 'print_collection' 
   match '/printing/print_all',        to: 'printing#print_all',        via: 'get', as: 'print_all'
   match '/printing/print_selected',   to: 'printing#print_selected',   via: 'get', as: 'print_selected'
+  match '/printing/remove_collection',   to: 'printing#remove_collection',   via: 'get', as: 'remove_collection'
+  
   match '/help',                    to: 'welcome#help',        via: 'get'
   match '/about',                   to: 'welcome#about',       via: 'get'
   match '/contact',                 to: 'welcome#contact',     via: 'get'

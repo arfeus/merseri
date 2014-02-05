@@ -1,8 +1,10 @@
 <% provide(:title, 'Add collection') %>
-<h1>Printing#add_collection</h1>
-<h2>Idea <%= @collection.id %> is added to collection</h2>
+<h1>Idea is added to collection</h1>
 
-
-<strong>Idea:</strong>
+<h2>Idea:</h2>
 <br  />
-<%= @collection.title %>
+<%= @mer_added.title %>
+<br  />
+<br  />
+<%= link_to 'Back', :back %>
+

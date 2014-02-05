@@ -9,10 +9,21 @@ class PrintingController < ApplicationController
   end
   
   def add_collection
-    @collection = current_user.mers.find(params[:id])
+    @mer_added = Mer.find(params[:id])
+    session[:print] = Array.new unless session[:print]
+    session[:print].push(@mer_added.id)
   end
   
   def print_collection
+    if !session[:print]
+      redirect_to mers_path
+    else
+    @mers = Mer.order('vote DESC').find(session[:print])
+  end
+  end
+  
+  def remove_collection
+    session[:print] = Array.new
   end
   
   def adminon
