@@ -12,6 +12,8 @@
   <%= @mer.tag_list %>
 </p> 
 <%= link_to 'Edit', edit_mer_path(@mer) %>
+| 
+<%= link_to 'Ideas', mers_path %>
 <br  />
 <br  />
 <strong>vote = </strong><%= @mer.vote %>
@@ -20,7 +22,6 @@
   <%= f.hidden_field :vote %>
   <%= f.submit "vote up" %>
 <% end %>
-
 <%= form_for @mer do |f| %>
   <% @mer.vote = @mer.vote - 2  %>
   <%= f.hidden_field :vote %>
