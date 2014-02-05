@@ -1,74 +1,55 @@
 <% provide(:title, 'Idea') %>
+<h1>Idea:</h1>
 <p>
-  <h1>Idea:</h1>
   <%= @mer.title %>
 </p>
- 
+<h1>Notes:</h1>
 <p>
-  <h1>Notes:</h1>
   <%= @mer.text %>
 </p>
-
+<h1>Tags:</h1>
 <p>
-  <h1>Tags:</h1>
   <%= @mer.tag_list %>
-</p>
+</p> 
+<%= link_to 'Edit', edit_mer_path(@mer) %>
+<br  />
+<br  />
+<strong>vote = </strong><%= @mer.vote %>
+<%= form_for @mer do |f| %>
+  <% @mer.vote = @mer.vote + 1  %>
+  <%= f.hidden_field :vote %>
+  <%= f.submit "vote up" %>
+<% end %>
 
-<p>
-  <%= link_to 'Edit', edit_mer_path(@mer) %>
-  <br  />
-  <br  />
-  <strong>vote = </strong><%= @mer.vote %>
-</p>
-<p>
-	<%= form_for @mer do |f| %>
-	  <% @mer.vote = @mer.vote + 1  %>
-	  <%= f.hidden_field :vote %>
-	  <%= f.submit "vote up" %>
-	<% end %>
-</p>
-
-<p>
-	<%= form_for @mer do |f| %>
-	  <% @mer.vote = @mer.vote - 2  %>
-	  <%= f.hidden_field :vote %>
-	  <%= f.submit "Vote down" %>
-	<% end %>
-</p>
+<%= form_for @mer do |f| %>
+  <% @mer.vote = @mer.vote - 2  %>
+  <%= f.hidden_field :vote %>
+  <%= f.submit "Vote down" %>
+<% end %>
 
 <h2>Comments</h2>
-<p>
- <% @mer.comments.each do |comment| %>
-  <p>
+<% @mer.comments.each do |comment| %>
   <strong>Name:</strong>
+  <p>
   <%= comment.commenter %>
   </p>
-  <p> 
   <strong>Comment:</strong>
+  <p>
   <%= comment.body %>
   </p>
-  <p>
-    <%= link_to 'Delete above comment', [comment.mer, comment],
+  <%= link_to 'Delete above comment', [comment.mer, comment],
                  method: :delete,
                  data: { confirm: 'Are you sure?' } %>
-  </p>
   <br />
- <% end %>
-</p>
+<% end %>
 
 <h3>Add a comment:</h3>
 <%= form_for([@mer, @mer.comments.build]) do |f| %>
-  <p>
     <%= f.label :commenter %><br />
     <%= f.text_field :commenter %>
-  </p>
-  <p>
     <%= f.label :Comment %><br />
     <%= f.text_area :body %>
-  </p>
-  <p>
     <%= f.submit "Save" %>
-  </p>
 <% end %>
 
 

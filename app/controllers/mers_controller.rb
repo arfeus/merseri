@@ -1,12 +1,11 @@
 class MersController < ApplicationController
+
   def new
     @mer = Mer.new
   end
   
-  def create
-    
+  def create    
     @mer = current_user.mers.new(mer_params)
-
     if mer_params[:title] == "" then
       @mer.text = @mer.text.sub("---",'')
       @input = @mer.text.split("_")
@@ -51,23 +50,21 @@ class MersController < ApplicationController
   end
   
   def update
-    @mer = Mer.find(params[:id])
-    
+    @mer = Mer.find(params[:id])    
     if @mer.update(mer_params)
       if params[:commit] == 'Vote'
-         redirect_to mers_path
+        redirect_to mers_path
       else redirect_to @mer
       end
     else
       render 'edit'
     end
-  end
-  
+  end  
   
   def destroy
     @mer = Mer.find(params[:id])
     @mer.destroy
-    
+    session[:print].delete_if {|item| item == @mer.id }   
     redirect_to mers_path
   end
   
@@ -75,5 +72,4 @@ class MersController < ApplicationController
     def mer_params
       params.require(:mer).permit(:title, :text, :vote, :tag_list, :search)
     end   
-
 end

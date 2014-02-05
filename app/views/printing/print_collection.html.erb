@@ -6,14 +6,12 @@
 <br  />
 <div="mers"> 
   <% @mers.each do |mer| %>
-	  <hr />
+	<hr />
     <h2><%= link_to mer.title, mer %></h2>
     <%= simple_format(mer.text) %>
-  <p>Tags: <%= raw mer.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
-  <p><%= pluralize(mer.comments.count,'comment') %> | vote = <%= mer.vote %></p>
-  <br /><br />
-  
+    <p>Tags: <%= raw mer.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+    <p><%= pluralize(mer.comments.count,'comment') %> | vote = <%= mer.vote %></p>
+    <br /><br /> 
   <% end %>
 </div>
-<br  />
 

@@ -9,18 +9,18 @@ Merseri::Application.routes.draw do
   end
   
   root  'welcome#index'
-  match '/signup',                   to: 'users#new',                via: 'get'
-  match '/signin',                   to: 'sessions#new',             via: 'get'
-  match '/signout',                  to: 'sessions#destroy',         via: 'delete'
+  match '/signup',                    to: 'users#new',                 via: 'get'
+  match '/signin',                    to: 'sessions#new',              via: 'get'
+  match '/signout',                   to: 'sessions#destroy',          via: 'delete'
   match '/printing/add_collection',   to: 'printing#add_collection',   via: 'get', as: 'add_collection'
   match '/printing/print_collection', to: 'printing#print_collection', via: 'get', as: 'print_collection' 
   match '/printing/print_all',        to: 'printing#print_all',        via: 'get', as: 'print_all'
   match '/printing/print_selected',   to: 'printing#print_selected',   via: 'get', as: 'print_selected'
   match '/printing/remove_collection',   to: 'printing#remove_collection',   via: 'get', as: 'remove_collection'
   
-  match '/help',                    to: 'welcome#help',        via: 'get'
-  match '/about',                   to: 'welcome#about',       via: 'get'
-  match '/contact',                 to: 'welcome#contact',     via: 'get'
+  match '/help',                      to: 'welcome#help',              via: 'get'
+  match '/about',                     to: 'welcome#about',             via: 'get'
+  match '/contact',                   to: 'welcome#contact',           via: 'get'
   
   match '/on',   to: 'printing#adminon',   via: 'get', as: 'adminon'
   match '/off',   to: 'printing#adminoff',   via: 'get', as: 'adminoff'

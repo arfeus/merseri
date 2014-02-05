@@ -2,8 +2,7 @@ class PrintingController < ApplicationController
   def print_selected
     @mer = current_user
   end
-  
-  
+    
   def print_all
     @mers = current_user.mers
   end
@@ -19,7 +18,7 @@ class PrintingController < ApplicationController
       redirect_to remove_collection_path
     else
     @mers = Mer.order('vote DESC').find(session[:print])
-  end
+    end
   end
   
   def remove_collection
@@ -35,5 +34,4 @@ class PrintingController < ApplicationController
     current_user.update_attribute :admin, false
     redirect_to root_path
   end
-
 end

@@ -1,13 +1,10 @@
 <% provide(:title, 'Welcome') %>
-
 <% if !current_user.nil? %>
-
   <h1>Search ideas</h1>
-  	   <%= render 'mers/search' %>
-
-      <div id="tag_cloud">
-        <%= render 'mers/tagcloud' %>
-      </div>
-  <% elsif %> 
-  	  <%= link_to "Sign in first", signin_path %>
-	<% end %>
+  <%= render 'mers/search' %>
+  <div id="tag_cloud">
+    <%= render 'mers/tagcloud' %>
+  </div>
+<% elsif %> 
+    <%= link_to "Sign in first", signin_path %>
+<% end %>
