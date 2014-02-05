@@ -16,7 +16,7 @@ class PrintingController < ApplicationController
   
   def print_collection
     if !session[:print]
-      redirect_to mers_path
+      redirect_to remove_collection_path
     else
     @mers = Mer.order('vote DESC').find(session[:print])
   end
