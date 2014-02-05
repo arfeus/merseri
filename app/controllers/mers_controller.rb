@@ -28,7 +28,7 @@ class MersController < ApplicationController
   end
   
   def show
-    @mer = current_user.mers.find(params[:id])
+    @mer = Mer.find(params[:id])
   end
   
   def index
@@ -39,7 +39,7 @@ class MersController < ApplicationController
       @mers = current_user.mers.tagged_with(params[:tag])
     else
       if current_user.admin?
-        @mers = Mer.all
+        @mers = Mer.all.order('vote DESC')
       else
       @mers = current_user.mers.order('vote DESC')
       end
