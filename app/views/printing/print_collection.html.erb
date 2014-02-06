@@ -9,9 +9,10 @@
 	<hr />
     <h2><%= link_to mer.title, mer %></h2>
     <%= simple_format(mer.text) %>
-    <p>Tags: <%= raw mer.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
-    <p><%= pluralize(mer.comments.count,'comment') %> | vote = <%= mer.vote %></p>
-    <br /><br /> 
+    Tags: <%= raw mer.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+	<br  />
+    <%= pluralize(mer.comments.count,'comment') %> | <%= pluralize(mer.vote,'vote') %> 
   <% end %>
+  <hr />
 </div>
 
