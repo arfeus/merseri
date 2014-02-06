@@ -50,7 +50,23 @@ class UsersController < ApplicationController
     flash[:success] = "User destroyed."
     redirect_to users_url
   end
-
+  
+  def admin_on
+    if current_user.admin?
+      @user = User.find(params[:id])
+      @user.update_attribute :admin, true
+      redirect_to users_path
+    end
+  end
+  
+  def admin_off
+    if current_user.admin?
+      @user = User.find(params[:id])
+      @user.update_attribute :admin, false
+      redirect_to users_path
+    end
+  end
+  
   private
 
     def user_params
