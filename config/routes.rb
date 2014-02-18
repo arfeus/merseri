@@ -21,6 +21,7 @@ Merseri::Application.routes.draw do
   match '/help',                      to: 'welcome#help',              via: 'get'
   match '/about',                     to: 'welcome#about',             via: 'get'
   match '/contact',                   to: 'welcome#contact',           via: 'get'
+  match '/newuser',                   to: 'welcome#newuser',           via: 'get', as: 'newuser'
   
   match '/users/:id/admin_on',   to: 'users#admin_on',    via: 'get', as: 'admin_on'
   match '/users/:id/admin_off',  to: 'users#admin_off',   via: 'get', as: 'admin_off'
