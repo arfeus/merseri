@@ -1,12 +1,12 @@
 <% provide(:title, @user.name) %>
-<%= @user.name %> 
-<% if @user.admin %>
-  <%=  " is an admin." %>
-<% elsif %>
-  <%=" is a user." %>
-<% end %>
-<br  />
-<br  />
-<%= link_to 'Back', :back %>
+<div class="container">
+	<br  />
+  <%= @user.name %> 
+  <% if @user.admin %>
+    <%=  " is an admin." %>
+  <% elsif %>
+    <%=" is a user." %>
+  <% end %>
+</div>
 
 

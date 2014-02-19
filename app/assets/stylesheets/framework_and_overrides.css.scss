@@ -12,7 +12,7 @@ img {
 // to make views framework-neutral
 main {
   @extend .container;
-  background-color: #D9F0D9;
+  background-color: #DBE9E9;
   padding-bottom: 80px;
   width: 100%;
   margin-top: 51px; // accommodate the navbar
@@ -21,6 +21,14 @@ section {
   @extend .row;
   margin-top: 10px;
   }
+
+/* Errors */
+#error_explanation {
+	color: #f00;
+	ul {
+	  margin: 0 0 10px 0;
+  }
+}
 
  
 /* footer */
@@ -57,11 +65,12 @@ footer {
 /* tag cloud */
 
 #tag_cloud {
-  width: 400px;
+  width: 340px;
   line-height: 1.6em;
   .s { font-size: 0.8em; }
   .m { font-size: 1.2em; }
   .l { font-size: 1.8em; }
+	border-bottom: 1px solid black;
 }
 
 /* Users index */

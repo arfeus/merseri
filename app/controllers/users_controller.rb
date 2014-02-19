@@ -37,7 +37,7 @@ class UsersController < ApplicationController
       @user.update_attribute :admin, false
     end
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
+      flash[:notice] = "Profile updated"
       sign_in @user
       redirect_to @user
     else

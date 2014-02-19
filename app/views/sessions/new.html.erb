@@ -5,9 +5,8 @@
     <div class="col-sm-6 col-md-4 col-md-offset-4">
       <h1 class="text-center login-title">Sign in</h1>
       <div class="account-wall">
-        <img class="profile-img" src="dynamite.jpg?sz=120"
-           alt="dynamite.jpg">										
-			 <%= form_for(:session, url: sessions_path, :html => { class: "form-signin"}) do |f| %>
+			<%= image_tag "dynamite.jpg?sz=120", class: "profile-img", alt: "dynamite.jpg" %> 										
+			<%= form_for(:session, url: sessions_path, :html => { class: "form-signin"}) do |f| %>
 				 <%= f.text_field :email, placeholder: "Email", class: "form-control", autofocus: true %>
 				 <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
 				 <%= f.submit "Sign in", class: "btn btn-lg btn-primary btn-block" %>										
