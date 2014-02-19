@@ -1,0 +1,10 @@
+<%# navigation links %>
+
+<% if signed_in? %> 
+<li><%= link_to 'New idea', new_mer_path %></li>
+<li><%= link_to 'Ideas', mers_path  %></li>
+<li><%= link_to 'Show idea collection', print_collection_path %></li>
+<li><%= link_to "Users", users_path %></li>
+<li><%= link_to "Settings", edit_user_path(current_user) %></li>
+<li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+<% end %>

@@ -10,9 +10,11 @@
 	<%= f.label :email %>
 	<%= f.text_field :email %>
 	  
-	<%= f.label :admin %>
+	<%= f.label :admin do %>
+	Admin rights?
 	<%= f.check_box :admin %>
-
+	<% end %>
+	<br  />
 	<%= f.label :password %>
 	<%= f.password_field :password %>
 

@@ -30,8 +30,7 @@ class MersController < ApplicationController
     @mer = Mer.find(params[:id])
   end
   
-  def index
-    
+  def index    
     if params[:search]
       @mers = current_user.mers.search(params[:search]).order('vote DESC')
     elsif params[:tag]

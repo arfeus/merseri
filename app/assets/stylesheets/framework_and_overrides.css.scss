@@ -1,73 +1,54 @@
-h1 {
-  font-size: 1.5em;
-  text-align: left;
-}
+// import the CSS framework
+@import "bootstrap";
 
-h2 {
-  font-size: 1.2em;
-  text-align: left;
-  line-height: 1.3em;
-}
-
-h3 {
-  font-size: 1.0em;
-  text-align: left;
-    line-height: 1.7em;
-}
-
-/* forms */
-
-input, textarea, select {
-  border: 1px solid black;
-  width: 80%;
-  padding: 10px;
-  margin-bottom: 15px;
-}
-
-input {
-  height: auto !important;
-}
-
-
-.error_explanation {
-  color: red;
-  ul {
-    list-style: none;
-    margin: 0 0 18px 0;
+// make all images responsive by default
+img {
+  @extend .img-responsive;
+  margin: 0 auto;
   }
-}
 
-/* brand */
 
-brand {
+// apply styles to HTML elements
+// to make views framework-neutral
+main {
+  @extend .container;
+  background-color: #D9F0D9;
+  padding-bottom: 80px;
+  width: 100%;
+  margin-top: 51px; // accommodate the navbar
+  }
+section {
+  @extend .row;
+  margin-top: 10px;
+  }
 
-}
-
+ 
 /* footer */
 
 footer {
   margin-top: 80px;
+  margin-left: 10px;
   padding-top: 5px;
   border-top: 1px solid gray;
   color: gray;
   text-align: center;
   a {
-    color: black;
+    color: gray;
     &:hover {
-      color: gray;
+      color: black;
     }
   }
   small {
     float: left;
-	margin-left: 10px;
+  	margin-left: 10px;
   }
   ul {
     float: right;
-	margin-right: 10px;
+  	margin-right: 10px;
     li {
       float: left;
-      margin-left: 10px;
-	  color: gray;
+       margin-left: 10px;
+  	  color: gray;
     }
   }
 }
@@ -92,7 +73,7 @@ footer {
     overflow: auto;
     padding: 10px 0;
     border-top: 1px solid gray;
-    &:last-child {
+      &:last-child {
       border-bottom: 1px solid gray;
     }
   }
@@ -106,5 +87,7 @@ footer {
   float: left;
   width: 80%;
   margin-top: 50px;
-  
 }
+  
+  
+

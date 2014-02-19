@@ -1,4 +1,13 @@
-<%= form_tag(mers_path, :method => "get", id: "search-form") do %>
-	<%= text_field_tag :search, params[:search], placeholder: "Search idea" %>
-	<%= submit_tag "Search", :name => nil %>
-<% end %>
+<div class="container">
+  <%= form_tag(mers_path, :method => "get", id: "search-form") do %>
+	  <%= text_field_tag :search, params[:search], placeholder: "Search for ideas...", size: "50" %>
+	  <br  />
+	  <br  />
+  	<%= submit_tag "Search", :name => nil, class: "btn btn-lg btn-primary" %>
+		<br  />
+		<br  />
+  <% end %>
+  <div id="tag_cloud">
+    <%= render 'mers/tagcloud' %>
+  </div>
+</div>
