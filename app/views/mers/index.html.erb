@@ -1,16 +1,13 @@
 <% provide(:title, 'Ideas') %>
-<h1>Ideas</h1>
-
-<%= render 'mers/search' %>
-
-
-<div="mers"> 
+<div class="container">
+	<h1>Ideas</h1>
+	<%= render 'mers/search' %> 
   <% @mers.each do |mer| %>
     <hr />
     <h2><%= link_to mer.title, mer %></h2>
     <%= simple_format(mer.text) %>
     Tags: <%= raw mer.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
-	<br />
+	  <br />
     <%= pluralize(mer.comments.count,'comment') %> | <%= pluralize(mer.vote,'vote') %>	
     <%= form_for mer do |f| %>
       <% mer.vote = mer.vote + 1  %>

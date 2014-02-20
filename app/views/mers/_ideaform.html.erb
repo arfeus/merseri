@@ -1,30 +1,24 @@
-<%= form_for @mer do |f| %>
-  <% if @mer.errors.any? %>
-    <div id="error_explanation">
-		  <div class="alert alert-error">
-			   The form contains <%= pluralize(@mer.errors.count, "error") %>.
-	  </div>
-		<ul>
-	    <% @mer.errors.messages.values.each do |msg| %>
-		    <%msg.each do  |m| %>
-			    <li><%= m %></li>
-				<%end %>
-		  <% end %>
-	  </ul>
-		</div>
-  <% end %> 
-   <%= f.label :"Idea:" %><br  />
-   <%= f.text_area :title, size: "30x4" %><br  />
-   <%= f.label :"Notes:" %>
-   <br  />
-   <%= f.text_area :text, size: "30x4" %><br  />
-   <%= f.label :"Tags:" %><br  />
-   <%= f.text_field :tag_list, value: "draft", size: "30" %><br  />
-	 <br  />
-   <%= f.submit "Save", class: "btn btn-lg btn-primary" %>
+<div class="row">
+	<div class="col-sm-6 col-md-4 col-md-offset-4">
+		<div class="mer-wall">
+			<%= form_for(@mer, :html => { class: "form-mer"}) do |f| %>
+			   <%= render 'mer_error_messages' %>
+			   <%= f.label :"Idea:" %><br  />
+			   <%= f.text_area :title, class: "form-control" %><br  />
+			   <%= f.label :"Notes:" %>
+			   <br  />
+			   <%= f.text_area :text, class: "form-control" %><br  />
+			   <%= f.label :"Tags:" %><br  />
+			   <%= f.text_field :tag_list, value: "draft", class: "form-control" %><br  />
+				 <br  />
+			   <%= f.submit "Save", class: "btn btn-lg btn-primary btn-block" %>
 
-   <!-- vote must be set 0 in database -->
-   <% @mer.vote = 0 %>  
-   <%= f.hidden_field :vote %>
-<% end %>
+			   <!-- A vote must be set to 0 in database -->
+			   <% @mer.vote = 0 %>  
+			   <%= f.hidden_field :vote %>
+				 <span class="clearfix"></span>
+			<% end %>
+	  </div>
+	</div>
+</div>
 
