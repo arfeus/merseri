@@ -1,23 +1,23 @@
 <% provide(:title, 'Ideas') %>
 <div class="container">
-	<%= render 'mers/search' %> 
+	<%= render 'mers/search' %>
+	<br  />
+	<br  />
   <% @mers.each do |mer| %>
-    <hr />
-    <h2><%= link_to mer.title, mer %></h2>
-    <%= simple_format(mer.text) %>
-    Tags: <%= raw mer.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
-	  <br />
-    <%= pluralize(mer.comments.count,'comment') %> | <%= pluralize(mer.vote,'vote') %>	
-    <%= form_for mer do |f| %>
-      <% mer.vote = mer.vote + 1  %>
-      <%= f.hidden_field :vote %>
-      <%= f.submit "Vote" %>
-    <% end %>		  
+	<% @mer = mer %>
+	<%= render 'show_mer' %>			  
     <%= link_to 'Add to collection', add_collection_path(:id => mer.id) %>
     | <%= link_to 'Show', mer_path(mer) %>
-    | <%= link_to 'Edit', edit_mer_path(mer) %>
     | <%= link_to 'Delete', mer_path(mer),
 		  	method: :delete, data: { Confirm: 'Are you sure???' }%>
+		<br  />
+		<br  />
+		<%= form_for mer do |f| %>
+		  <% mer.vote = mer.vote + 1  %>
+		  <%= f.hidden_field :vote %>
+		  <%= f.submit "Vote" %>
+		<% end %>
+		<br  />
+		<br  />
   <% end %>
-  <hr />
 </div>

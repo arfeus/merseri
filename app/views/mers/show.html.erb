@@ -12,7 +12,7 @@
 				<%= @mer.text %>
 			</div>
 	    <div class="well">
-				<%= @mer.tag_list %>
+				<%= raw @mer.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
 			</div>
 	  </div>
 	  <div class="panel-footer">
