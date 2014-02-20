@@ -1,7 +1,8 @@
 <%# navigation links %>
 <ul class="nav navbar-nav">
 <% if signed_in? %> 
-<li class="<%= 'active' if current_page?(new_mer_path) %>"><%= link_to 'New idea', new_mer_path %></li>
+
+<li class="<%= 'active' if current_page?(new_mer_path) %>"> <%= link_to 'idea', new_mer_path, class: "glyphicon glyphicon-pencil" %></li>
 <li class="<%= 'active' if current_page?(mers_path) %>"><%= link_to 'Ideas', mers_path  %></li>
 <li class="<%= 'active' if current_page?(print_collection_path) %>"><%= link_to 'Show idea collection', print_collection_path %></li>
 <li class="dropdown">

@@ -1,0 +1,13 @@
+<div class="row">
+	<div class="col-sm-6 col-md-4 col-md-offset-4">
+		<div class="comment-wall">
+			<%= form_for([@mer, @mer.comments.build], :html => { class: "form-comment"}) do |f| %>
+			    <%= f.label :commenter %><br />
+			    <%= f.text_field :commenter, value: current_user.name, class: "form-control" %>
+			    <%= f.label :Comment %><br />
+			    <%= f.text_area :body, class: "form-control" %>
+			    <%= f.submit "Save", class: "btn btn-lg btn-primary btn-block" %>
+      <% end %>
+		</div>
+	</div>
+</div>

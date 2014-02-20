@@ -1,56 +1,54 @@
 <% provide(:title, 'Idea') %>
+<div class="container">
 <h1>Idea:</h1>
-<p>
-  <%= @mer.title %>
-</p>
-<h1>Notes:</h1>
-<p>
-  <%= @mer.text %>
-</p>
-<h1>Tags:</h1>
-<p>
-  <%= @mer.tag_list %>
-</p> 
-<%= link_to 'Edit', edit_mer_path(@mer) %>
-| 
-<%= link_to 'Ideas', mers_path %>
-<br  />
-<br  />
-<strong>vote = </strong><%= @mer.vote %>
-<%= form_for @mer do |f| %>
-  <% @mer.vote = @mer.vote + 1  %>
-  <%= f.hidden_field :vote %>
-  <%= f.submit "vote up" %>
-<% end %>
-<%= form_for @mer do |f| %>
-  <% @mer.vote = @mer.vote - 2  %>
-  <%= f.hidden_field :vote %>
-  <%= f.submit "Vote down" %>
-<% end %>
 
-<h2>Comments</h2>
-<% @mer.comments.each do |comment| %>
-  <strong>Name:</strong>
-  <p>
-  <%= comment.commenter %>
-  </p>
-  <strong>Comment:</strong>
-  <p>
-  <%= comment.body %>
-  </p>
-  <%= link_to 'Delete above comment', [comment.mer, comment],
-                 method: :delete,
-                 data: { confirm: 'Are you sure?' } %>
-  <br />
-<% end %>
+	<div class="panel panel-primary">
+		<div class="panel-heading"><%= @mer.created_at %></div>
+	  <div class="panel-body panel-primary">
+	    <div class="well">
+				<%= @mer.title %>
+			</div>
+	    <div class="well">
+				<%= @mer.text %>
+			</div>
+	    <div class="well">
+				<%= @mer.tag_list %>
+			</div>
+	  </div>
+	  <div class="panel-footer">
+			<%= link_to 'Edit', edit_mer_path(@mer) %>
+	    | <%= link_to 'Ideas', mers_path %>
+			| This idea has <%= pluralize(@mer.vote, "vote") %>		
+		</div>
+	</div>
+	
+  <%= render 'add_comment' %>
+	
+	<h3>Note <%= @mer.comments.count %> comments. Last one to be removed.</h3>
+	<% @mer.comments.each do |comment| %>
+	  <div class="panel panel-primary">
+		<div class="panel-heading"><%= comment.created_at %></div>
+	  <div class="panel-body panel-primary">
+	    <div class="well">
+				<%= comment.commenter %>
+			</div>
+	    <div class="well">
+				<%= comment.body %>
+			</div>
+	  </div>
+	  <div class="panel-footer">
+		  <%= link_to 'Delete this comment', [comment.mer, comment],
+		                 method: :delete,
+		                 data: { confirm: 'Are you sure?' } %>	
+		</div>
+		</div>
+	<% end %>
 
-<h3>Add a comment:</h3>
-<%= form_for([@mer, @mer.comments.build]) do |f| %>
-    <%= f.label :commenter %><br />
-    <%= f.text_field :commenter %>
-    <%= f.label :Comment %><br />
-    <%= f.text_area :body %>
-    <%= f.submit "Save" %>
-<% end %>
-
+  to be removed
+	<%= form_for @mer do |f| %>
+	  <% @mer.vote = @mer.vote - 1  %>
+	  <%= f.hidden_field :vote %>
+	  <%= f.submit "Vote down" %>
+	<% end %>
+</div>
 
