@@ -1,11 +1,6 @@
 <%# navigation links %>
 <ul class="nav navbar-nav">
 <% if signed_in? %> 
-
-<%= link_to vote_up_mer_path(@mer), method: :put, class: "btn btn-default btn-md" do %>
-    <span class="glyphicon glyphicon-thumbs-up"></span>
-<% end %>
-
 <li class="<%= 'active' if current_page?(new_mer_path) %>">
 	<%= link_to new_mer_path do %>
 	 <span class="glyphicon glyphicon-pencil"></span>idea
