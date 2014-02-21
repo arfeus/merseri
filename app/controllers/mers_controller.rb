@@ -18,11 +18,14 @@ class MersController < ApplicationController
         render 'new'
       end  
     else
-       if @mer.save
+      if @mer.vote == nil
+        @mer.vote = 0
+      end
+      if @mer.save
          redirect_to @mer
-       else
+      else
          render 'new'
-       end
+      end
     end
   end
   
@@ -68,16 +71,16 @@ class MersController < ApplicationController
     @mer = Mer.find(params[:id])
     @mer.vote = @mer.vote + 1
     @mer.update_attribute(:vote, @mer.vote)
-    render 'show'
+    redirect_to :back
   end
   
   def vote_down
     @mer = Mer.find(params[:id])
-    if @mer.vote >= 0
+    if @mer.vote > 0
       @mer.vote = @mer.vote - 1
       @mer.update_attribute(:vote, @mer.vote)
     end
-    redirect_to mers_path
+    redirect_to :back
   end
   
   private
