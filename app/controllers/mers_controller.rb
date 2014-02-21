@@ -47,6 +47,10 @@ class MersController < ApplicationController
     end
   end
   
+  def edit_comment
+    @mer = Mer.find(params[:id])
+  end
+    
   def edit
     @mer = Mer.find(params[:id])
   end
