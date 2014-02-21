@@ -1,0 +1,16 @@
+<% @mer.comments.each do |comment| %>
+  <div class="panel panel-primary">
+	<div class="panel-heading"><%= comment.commenter %>  <%= comment.created_at %></div>
+  <div class="panel-body panel-primary">
+    <div class="well">
+			<%= comment.body %>
+		</div>
+  </div>
+  <div class="panel-footer">
+		| <%= link_to 'Edit idea!!!', edit_mer_path(@mer) %>
+	  | <%= link_to 'Delete this comment', [comment.mer, comment],
+	                 method: :delete,
+	                 data: { confirm: 'Are you sure?' } %>	
+	</div>
+	</div>
+<% end %>
