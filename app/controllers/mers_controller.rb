@@ -68,7 +68,7 @@ class MersController < ApplicationController
     @mer = Mer.find(params[:id])
     @mer.vote = @mer.vote + 1
     @mer.update_attribute(:vote, @mer.vote)
-    redirect_to mers_path
+    render 'show'
   end
   
   def vote_down
