@@ -1,18 +1,14 @@
 <% provide(:title, 'Print all') %>
-<h1>Showing ideas in collection</h1>
-<br  />
-<br  />
-<%= link_to 'Empty collection', remove_collection_path  %>
-<br  />
-<div="mers"> 
-  <% @mers.each do |mer| %>
-	<hr />
-    <h2><%= link_to mer.title, mer %></h2>
-    <%= simple_format(mer.text) %>
-    Tags: <%= raw mer.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+<div class="collection">
+	<h1>Showing ideas in collection</h1>
 	<br  />
-    <%= pluralize(mer.comments.count,'comment') %> | <%= pluralize(mer.vote,'vote') %> 
-  <% end %>
-  <hr />
+	<ul>
+	  <li><h3><%= link_to 'Empty collection', remove_collection_path  %></h3></li>
+	  <li><h3><%= link_to 'Email collection', print_email_path  %></h3></li>
+  </ul>
+	<br  /> 
+	  <% @mers.each do |mer| %>
+		<% @mer = mer %>
+		<%= render 'mers/show_title' %> 
+	  <% end %>
 </div>
-

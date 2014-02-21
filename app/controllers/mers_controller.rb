@@ -51,10 +51,7 @@ class MersController < ApplicationController
   def update
     @mer = Mer.find(params[:id])    
     if @mer.update(mer_params)
-      if params[:commit] == 'Vote'
-        redirect_to mers_path
-      else redirect_to @mer
-      end
+      redirect_to @mer
     else
       render 'edit'
     end
@@ -64,6 +61,22 @@ class MersController < ApplicationController
     @mer = Mer.find(params[:id])
     @mer.destroy
     session[:print].delete_if {|item| item == @mer.id }   
+    redirect_to mers_path
+  end
+  
+  def vote_up
+    @mer = Mer.find(params[:id])
+    @mer.vote = @mer.vote + 1
+    @mer.update_attribute(:vote, @mer.vote)
+    redirect_to mers_path
+  end
+  
+  def vote_down
+    @mer = Mer.find(params[:id])
+    if @mer.vote >= 0
+      @mer.vote = @mer.vote - 1
+      @mer.update_attribute(:vote, @mer.vote)
+    end
     redirect_to mers_path
   end
   

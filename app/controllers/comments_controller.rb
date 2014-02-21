@@ -8,8 +8,7 @@ class CommentsController < ApplicationController
   def destroy
     @mer = current_user.mers.find(params[:mer_id])
     @comment = @mer.comments.find(params[:id])
-    @comment.destroy
-    
+    @comment.destroy    
     redirect_to mer_path(@mer)
   end
   

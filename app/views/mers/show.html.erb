@@ -1,30 +1,11 @@
 <% provide(:title, 'Idea') %>
 <div class="container">
-<h1>Idea:</h1>
+  <h1>Idea:</h1>
 
-	<div class="panel panel-primary">
-		<div class="panel-heading"><%= @mer.created_at %></div>
-	  <div class="panel-body panel-primary">
-	    <div class="well">
-				<%= @mer.title %>
-			</div>
-	    <div class="well">
-				<%= @mer.text %>
-			</div>
-	    <div class="well">
-				<%= raw @mer.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
-			</div>
-	  </div>
-	  <div class="panel-footer">
-			<%= link_to 'Edit', edit_mer_path(@mer) %>
-	    | <%= link_to 'Ideas', mers_path %>
-			| This idea has <%= pluralize(@mer.vote, "vote") %>		
-		</div>
-	</div>
+  <%= render 'show_mer' %>	
 	
-  <%= render 'add_comment' %>
+	<h3><%= pluralize(@mer.comments.count, "comment") %></h3>
 	
-	<h3>Note <%= @mer.comments.count %> comments. Last one to be removed.</h3>
 	<% @mer.comments.each do |comment| %>
 	  <div class="panel panel-primary">
 		<div class="panel-heading"><%= comment.created_at %></div>
@@ -43,12 +24,9 @@
 		</div>
 		</div>
 	<% end %>
+	<%= render 'add_comment' %>
 
   to be removed
-	<%= form_for @mer do |f| %>
-	  <% @mer.vote = @mer.vote - 1  %>
-	  <%= f.hidden_field :vote %>
-	  <%= f.submit "Vote down" %>
-	<% end %>
+<%= link_to('vote down for this post!', vote_down_mer_path(@mer), :method => :put) %>
 </div>
 

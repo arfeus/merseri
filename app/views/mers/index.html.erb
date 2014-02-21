@@ -6,18 +6,6 @@
   <% @mers.each do |mer| %>
 	<% @mer = mer %>
 	<%= render 'show_mer' %>			  
-    <%= link_to 'Add to collection', add_collection_path(:id => mer.id) %>
-    | <%= link_to 'Show', mer_path(mer) %>
-    | <%= link_to 'Delete', mer_path(mer),
-		  	method: :delete, data: { Confirm: 'Are you sure???' }%>
-		<br  />
-		<br  />
-		<%= form_for mer do |f| %>
-		  <% mer.vote = mer.vote + 1  %>
-		  <%= f.hidden_field :vote %>
-		  <%= f.submit "Vote" %>
-		<% end %>
-		<br  />
-		<br  />
+  <%= link_to 'Show', mer_path(mer) %>
   <% end %>
 </div>
