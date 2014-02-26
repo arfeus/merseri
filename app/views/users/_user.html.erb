@@ -2,6 +2,9 @@
   <%= link_to user.name, user %>
   <% if user.admin %>
     <%=  " is an admin " %>
+		<% else %>
+		<%= " is an user " %>
+
   <% end %>
   <% if current_user.admin? && !current_user?(user) %>
     <% if !user.admin %>

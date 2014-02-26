@@ -34,16 +34,14 @@ class MersController < ApplicationController
   end
   
   def index    
-    if params[:search]
+    if params[:search] && current_user.admin?
+      @mers = Mer.all.search(params[:search]).order('vote DESC')
+    elsif params[:tag]
+      @mers = Mer.all.tagged_with(params[:tag])
+    elsif params[:search]
       @mers = current_user.mers.search(params[:search]).order('vote DESC')
     elsif params[:tag]
       @mers = current_user.mers.tagged_with(params[:tag])
-    else
-      if current_user.admin?
-        @mers = Mer.all.order('vote DESC')
-      else
-      @mers = current_user.mers.order('vote DESC')
-      end
     end
   end
   
