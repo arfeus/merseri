@@ -44,10 +44,6 @@ class MersController < ApplicationController
       @mers = current_user.mers.tagged_with(params[:tag])
     end
   end
-  
-  def edit_comment
-    @mer = Mer.find(params[:id])
-  end
     
   def edit
     @mer = Mer.find(params[:id])

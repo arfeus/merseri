@@ -1,6 +1,5 @@
-<div class="row">
-	<div class="col-12">
-		<div class="search-wall">
+<div class="panel panel-primary panel-form">
+		<div class="panel-body panel-primary">
 			<%= form_tag(mers_path, :method => "get", :html => { class: "form-search"}) do %>
 			  <%= text_field_tag :search, params[:search], placeholder: "Search for ideas...", class: "form-control" %>
 			  <br  />
@@ -11,5 +10,4 @@
 			  <%= render 'mers/tagcloud' %>
 			</div>
 		</div>
-	</div>
 </div>

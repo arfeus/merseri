@@ -12,6 +12,7 @@ Merseri::Application.routes.draw do
     member do
       put :vote_up
       put :vote_down
+      put :edit_comment
     end
   end
   
