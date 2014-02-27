@@ -5,10 +5,17 @@ class CommentsController < ApplicationController
     redirect_to mer_path(@mer)
   end
   
+  def edit
+    @mer = Mer.find(params[:mer_id])
+    @comment = @mer.comments.find(params[:id])
+  end
+  
   def update
     @mer = Mer.find(params[:mer_id])
-    @comment = Comment.find(params[:id])
-    render 'edit_comment'
+    @comment = @mer.comments.find(params[:id])
+    if @comment.update(comment_params)
+      redirect_to mer_path(@mer)
+    end
   end
   
   def destroy

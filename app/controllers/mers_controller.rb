@@ -31,6 +31,7 @@ class MersController < ApplicationController
   
   def show
     @mer = Mer.find(params[:id])
+    @user = User.find(@mer.user_id)
   end
   
   def index    

@@ -4,6 +4,7 @@
 	<br  />
   <% @mers.each do |mer| %>
 	<% @mer = mer %>
+	<% @user = User.find(mer.user_id) %>
 	<%= render 'show_mer' %>			  
   <% end %>
 </div>
