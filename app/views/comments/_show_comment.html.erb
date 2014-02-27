@@ -1,5 +1,5 @@
 <% @mer.comments.each do |comment| %>
-  <div class="panel panel-primary">
+  <div class="panel panel-info">
 	  <div class="panel-heading"><%= comment.commenter %>,  <%= comment.created_at.localtime.to_formatted_s(:rfc822) %></div>
     <div class="panel-body panel-primary">
       <div class="well">

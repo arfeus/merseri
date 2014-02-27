@@ -8,6 +8,9 @@ class CommentsController < ApplicationController
   def edit
     @mer = Mer.find(params[:mer_id])
     @comment = @mer.comments.find(params[:id])
+    if @comment.commenter != current_user.name
+      redirect_to mer_path(@mer)
+    end
   end
   
   def update
