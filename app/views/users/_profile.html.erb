@@ -1,9 +1,10 @@
-<div class="row">
-  <div class="col-sm-6 col-md-4 col-md-offset-4">
+<div class="container">
+  <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
     <div class="account-wall">
     <%= form_for(@user, :html => { class: "form-signin"}) do |f| %>
       <%= render 'shared/error_messages' %>
       <%= f.text_field :name, placeholder: "Name", class: "form-control", autofocus: true %>
+			<br  />
       <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
       <label class="checkbox pull-left">
         <%= f.check_box :admin %>
