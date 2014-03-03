@@ -1,6 +1,11 @@
 Merseri::Application.routes.draw do
 
-  resources :users
+  resources :users do
+    member do
+      get :mers
+    end
+  end
+  
   resources :sessions, only: [:new, :create, :destroy]
   
   resources :mers do

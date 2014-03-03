@@ -51,6 +51,11 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
   
+  def mers
+    @user = User.find(params[:id])
+    @mers = @user.mers
+  end
+  
   def admin_on
     if current_user.admin?
       @user = User.find(params[:id])

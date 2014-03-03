@@ -25,13 +25,5 @@ class PrintingController < ApplicationController
     session[:print] = Array.new
   end
   
-  def adminon
-    current_user.update_attribute :admin, true
-    redirect_to root_path
-  end
-  
-  def adminoff
-    current_user.update_attribute :admin, false
-    redirect_to root_path
-  end
+
 end

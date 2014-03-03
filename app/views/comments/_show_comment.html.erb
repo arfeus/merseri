@@ -7,10 +7,8 @@
 		  </div>
     </div>
     <div class="panel-footer">
-	  	| <%= link_to 'Edit comment', edit_mer_comment_path(comment.mer, comment) %>
-	    | <%= link_to 'Delete this comment', [comment.mer, comment],
-	                 method: :delete,
-	                 data: { confirm: 'Are you sure?' } %>	
+	  	<% if current_user.name == comment.commenter %><%= link_to 'Edit comment', edit_mer_comment_path(comment.mer, comment) %> | <% end %>
+	    <% if current_user.admin || current_user.name == comment.commenter %><%= link_to 'Delete this comment', [comment.mer, comment], method: :delete, data: { confirm: 'Are you sure?' } %><% end %>
 	  </div>
 	</div>
 <% end %>

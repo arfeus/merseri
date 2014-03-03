@@ -1,5 +1,6 @@
+<br  />
 <div class="panel panel-primary">
-	<div class="panel-heading"><%= @mer.created_at.localtime.to_formatted_s(:rfc822) %></div>
+	<div class="panel-heading">by <%= @user.name %>, created on <%= @mer.created_at.localtime.to_formatted_s(:rfc822) %></div>
   <div class="panel-body panel-primary">
     <div class="well">
 		  <%= @mer.title %>

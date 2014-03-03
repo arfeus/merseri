@@ -1,12 +1,8 @@
 <% provide(:title, @user.name) %>
 <div class="container">
 	<br  />
-  <%= @user.name %> 
-  <% if @user.admin %>
-    <%=  " is an admin." %>
-  <% elsif %>
-    <%=" is a user." %>
-  <% end %>
+  All ideas of <%= link_to @user.name, mers_user_path(@user) %> 
+ 
 </div>
 
 
