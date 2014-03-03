@@ -6,9 +6,7 @@
       <div class="panel-heading">
         <div class="panel-title">Sign In</div>
 		  </div>
-
-      <div style="padding-top:30px" class="panel-body" >
-								
+      <div style="padding-top:30px" class="panel-body" >		
 				<%= form_for(:session, url: sessions_path, :html => { id: "loginform", class: "form-horizontal", role: "form"}) do |f| %>
 					 <%= f.text_field :email, placeholder: "Email", class: "form-control", autofocus: true %>
 					 <br   />
@@ -16,15 +14,11 @@
 					 <br   />
 					 <%= f.submit "Sign in", class: "btn btn-lg btn-primary btn-block" %>	
 					 <br   />								
-	         <label class="checkbox pull-left">
-						  <%= f.check_box :remember %>
-						  <%= f.label "Remember me" %>
-					 </label>
-	         <%= link_to "Need help?", help_path, class: "pull-right need-help" %>
 	         <div class="form-group">
 	             <div class="col-md-12 control">
 	                 <div style="border-top: 1px solid#888; padding-top:15px; font-size:90%" >
-	 				        <%= link_to "New user sign up here!", signup_path, class: "text-center new-account" %>
+										 <%= link_to "Need help?", help_path, class: "pull-right need-help" %>
+	 				        <%= link_to "New user?", signup_path, class: "pull-left new-account" %>
 	 								</div>
 	 				    </div>
 	 				</div>
