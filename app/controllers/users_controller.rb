@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       redirect_to newuser_path
     else/
       render 'new'
-    end
+      /end
   end
   
   def edit
