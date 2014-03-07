@@ -84,8 +84,7 @@ Merseri::Application.configure do
   config.action_mailer.raise_delivery_errors = true
   
   config.action_mailer.smtp_settings = {
-    :openssl_verify_mode => OpenSSL::SSL::VERIFY_NONE,      
-    :ssl => true,
+    
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'gmail.com',
