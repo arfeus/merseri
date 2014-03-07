@@ -22,9 +22,10 @@ class PrintingController < ApplicationController
     end
   end
   
-  def email_collection
-    @mers = current_user.mers
-    UserMailer.mers_email(@mers, current_user).deliver
+  def collection_email
+    @user = current_user
+    @mers = Mer.order('vote DESC').find(session[:print])
+    UserMailer.collection_email(@mers, @user).deliver
   end
   
   def remove_collection

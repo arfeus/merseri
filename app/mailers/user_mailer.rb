@@ -7,10 +7,11 @@ class UserMailer < ActionMailer::Base
     mail(to: @user.email, subject: 'Welcome to use merseri')
   end
   
-  def welcome_email(user)
+  def collection_email(mers, user)
     @user = user
+    @mers = mers
     @url  = 'https://merseri.herokuapp.com/'
-    mail(to: @user.email, subject: 'Welcome to use merseri')
+    mail(to: @user.email, subject: 'Collection')
   end
   
 end
