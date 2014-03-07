@@ -26,4 +26,13 @@ Merseri::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+  
+  # Set action_mailer to use localhost for email sending.
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "localhost",
+    :port => 25,
+    :domain => "whatever.com",
+  }
+  
 end
