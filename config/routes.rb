@@ -31,11 +31,16 @@ Merseri::Application.routes.draw do
   match '/printing/print_all',        to: 'printing#print_all',        via: 'get', as: 'print_all'
   match '/printing/collection_email',      to: 'printing#collection_email',      via: 'get', as: 'collection_email'
   match '/printing/remove_collection',   to: 'printing#remove_collection',   via: 'get', as: 'remove_collection'
-  
+ # static pages 
   match '/help',                      to: 'welcome#help',              via: 'get', as: 'help'
   match '/about',                     to: 'welcome#about',             via: 'get'
   match '/contact',                   to: 'welcome#contact',           via: 'get'
   match '/newuser',                   to: 'welcome#newuser',           via: 'get', as: 'newuser'
+  match '/welcome',                   to: 'welcome#welcome',           via: 'get', as: 'welcome'
+  match '/time',                      to: 'welcome#time',              via: 'get', as: 'time'
+  match '/diary',                     to: 'welcome#diary',             via: 'get', as: 'diary'
+  match '/netcommunity',              to: 'welcome#netcommunity',      via: 'get', as: 'netcommunity'
+  match '/inventory',                 to: 'welcome#inventory',         via: 'get', as: 'inventory'
   
   match '/users/:id/admin_on',   to: 'users#admin_on',    via: 'get', as: 'admin_on'
   match '/users/:id/admin_off',  to: 'users#admin_off',   via: 'get', as: 'admin_off'
