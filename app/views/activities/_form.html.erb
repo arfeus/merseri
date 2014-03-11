@@ -1,0 +1,15 @@
+<br  />
+<div class="panel panel-primary panel-form">
+		<div class="panel-body panel-primary">
+			<%= form_for(@activity, :html => { class: "form-mer"}) do |f| %>
+			   
+			   <%= f.label :name %><br  />
+			   <%= f.text_field :name, class: "form-control" %><br  />
+				 <br  />
+			   <%= f.submit "Save", class: "btn btn-lg btn-primary btn-block" %>
+				 <span class="clearfix"></span>
+			<% end %>
+	</div>
+</div>
+
+
