@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140314045944) do
+ActiveRecord::Schema.define(version: 20140314124340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,16 +36,6 @@ ActiveRecord::Schema.define(version: 20140314045944) do
   end
 
   add_index "activities", ["user_id", "created_at"], name: "index_activities_on_user_id_and_created_at", using: :btree
-
-  create_table "activity_times", force: true do |t|
-    t.datetime "start"
-    t.datetime "stop"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "activity_id"
-  end
-
-  add_index "activity_times", ["activity_id"], name: "index_activity_times_on_activity_id", using: :btree
 
   create_table "comments", force: true do |t|
     t.string   "commenter"
