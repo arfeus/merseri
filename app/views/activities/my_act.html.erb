@@ -1,0 +1,15 @@
+<div class="container">
+	<h2><%= @activity.name %> added to myActivity</h2>
+	<br  />
+	My activities are:
+	<ul>
+	<% @my_activities.each do |my_activity| %>
+	<li>
+	<%= my_activity.name %>
+	</li>
+	<% end %>
+	</ul>
+	<br  />
+	<%= link_to 'Show', @activity %> |
+	<%= link_to 'Back', activities_path %>
+</div>

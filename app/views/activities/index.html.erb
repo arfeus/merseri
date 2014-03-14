@@ -10,7 +10,10 @@
 		   </div>
      <div class="panel-footer">
 	     <%= link_to 'Edit', edit_activity_path(activity) %>
-		 	 | <%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %>  
+		 	 | <%= link_to 'Delete', activity, method: :delete, data: { confirm: 'Are you sure?' } %>
+			 | <%= link_to 'Start', new_acting_path(activity_id: activity.id) %><br  />
+			 <br  />
+			 <%= button_to "Add to myActivity w", my_act_activity_path(activity), method: :get, class: "btn btn-sm btn-success" %>
      </div>
     </div>
   </div>

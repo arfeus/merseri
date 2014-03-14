@@ -1,10 +1,11 @@
 Merseri::Application.routes.draw do
 
-  resources :activities
+  resources :actings
 
   resources :users do
     member do
       get :mers
+      get :activities
     end
   end
   
@@ -22,6 +23,14 @@ Merseri::Application.routes.draw do
     end
   end
   
+  resources :activities do
+    member do
+      get :my_act
+    end
+  end
+  
+  
+  
   root  'welcome#search'
   match '/signup',                    to: 'users#new',                 via: 'get'
   match '/signin',                    to: 'sessions#new',              via: 'get'
@@ -31,15 +40,18 @@ Merseri::Application.routes.draw do
   match '/printing/add_collection',   to: 'printing#add_collection',   via: 'get', as: 'add_collection'
   match '/printing/print_collection', to: 'printing#print_collection', via: 'get', as: 'print_collection' 
   match '/printing/print_all',        to: 'printing#print_all',        via: 'get', as: 'print_all'
-  match '/printing/collection_email',      to: 'printing#collection_email',      via: 'get', as: 'collection_email'
-  match '/printing/remove_collection',   to: 'printing#remove_collection',   via: 'get', as: 'remove_collection'
- # static pages 
+  match '/printing/collection_email', to: 'printing#collection_email', via: 'get', as: 'collection_email'
+  match '/printing/remove_collection',to: 'printing#remove_collection',via: 'get', as: 'remove_collection'
+ 
+  match '/time',                      to: 'activities#time',           via: 'get', as: 'time'
+  match '/history',                   to: 'activities#history',        via: 'get', as: 'history'
+ 
   match '/help',                      to: 'welcome#help',              via: 'get', as: 'help'
   match '/about',                     to: 'welcome#about',             via: 'get'
   match '/contact',                   to: 'welcome#contact',           via: 'get'
   match '/newuser',                   to: 'welcome#newuser',           via: 'get', as: 'newuser'
   match '/welcome',                   to: 'welcome#welcome',           via: 'get', as: 'welcome'
-  match '/time',                      to: 'welcome#time',              via: 'get', as: 'time'
+
   match '/diary',                     to: 'welcome#diary',             via: 'get', as: 'diary'
   match '/netcommunity',              to: 'welcome#netcommunity',      via: 'get', as: 'netcommunity'
   match '/inventory',                 to: 'welcome#inventory',         via: 'get', as: 'inventory'

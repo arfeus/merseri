@@ -1,0 +1,28 @@
+<div class="container">	
+	
+  <h1>Welcome to TIME</h1>
+	<div class="row">  
+		<div class="col-md-6">
+			<%= link_to "new activity", new_activity_path, class: "btn btn-lg btn-primary btn-block" %>		
+    </div>
+		<div class="col-md-6">
+      <%= link_to "Show activities", activities_path, class: "btn btn-lg btn-primary btn-block" %><br  />
+	  </div>
+  </div>
+	<br  />
+	<div class="row"> 
+		<% @my_activities.each do |my_activity| %> 
+		<div class="col-md-4">
+			<%= link_to my_activity.name, new_acting_path(activity_id: my_activity.id), class: "btn btn-lg btn-warning btn-block" %>
+		</div>
+		<% end %>
+	</div>
+	<br  />
+	<div class="row">  
+		<div class="col-md-12">
+			<%= link_to "history", history_path, class: "btn btn-lg btn-success btn-block" %>
+			<%= link_to "back to welcome", welcome_path, class: "btn btn-lg btn-success btn-block" %>
+		</div>
+	</div>		
+</div>
+

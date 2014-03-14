@@ -1,0 +1,14 @@
+<div class="container">
+
+  <h2>Activity is ready to begin!</h2>
+	<br  />
+	<%= form_for(@acting) do |f| %>
+    <div class="field">
+      <%= f.hidden_field :activity_id, value: params[:activity_id] %>
+			<%= f.hidden_field :start, value: Time.now %>
+			<%= f.hidden_field :stop, value: Time.now %>
+    </div>
+	  <br  />
+	  <%= f.submit 'Start', class: "btn btn-lg btn-success" %>
+  <% end %>
+</div>

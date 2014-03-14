@@ -1,0 +1,16 @@
+<div class="container">
+	<br  />
+	<h2><%= current_user.name %> all activities</h2>
+	<br  />
+	<ul>
+	<% @actings_cu.each do |a| %>
+	  <li>
+	  <%= Activity.find(a.activity_id).name.capitalize %> started <%= a.start.to_formatted_s(:short) %> and was exercised <%= distance_of_time_in_words(a.stop - a.start) %>
+    </li>
+	<% end %>
+	</ul>
+	<br  />
+	<br  />
+	<%= link_to "Time", time_path, class: "btn btn-lg btn-primary btn-block" %>
+
+</div>

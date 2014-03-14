@@ -1,0 +1,17 @@
+<div class="container">
+	<br  />
+	<p>
+	  <strong>User:</strong>
+	  <%= current_user.name %>
+	</p>
+	<h2><%= @activity.name.capitalize %> started at <%= @acting.created_at %></h2>
+	<br  />
+	<%= link_to "Stop", acting_path(@acting), method: :patch, class: "btn btn-lg btn-danger" %>
+	<br  />
+	<br  />
+	<%= link_to 'Edit', edit_acting_path(@acting) %> |
+	<%= link_to 'Delete', acting_path(@acting), method: :delete, data: { Confirm: 'Are you sure?' } %> |
+	<%= link_to 'Back', actings_path %>
+
+
+</div>

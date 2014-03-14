@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   
   has_many :mers, dependent: :destroy
+  has_many :actings, dependent: :destroy
   has_many :activities
   
   before_save { self.email = email.downcase }

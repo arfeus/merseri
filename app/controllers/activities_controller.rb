@@ -1,7 +1,5 @@
 class ActivitiesController < ApplicationController
 
-
-
   def new
     @activity = Activity.new
   end
@@ -28,21 +26,39 @@ class ActivitiesController < ApplicationController
   end
 
   def update
-    respond_to do |format|
+    @activity = Activity.find(params[:id])
       if @activity.update(activity_params)
-        format.html { redirect_to @activity, notice: 'Activity was successfully updated.' }
+        redirect_to activities_path, notice: 'Activity was successfully updated.'
       else
-        format.html { render action: 'edit' }
+        render action: 'edit'
       end
-    end
   end
 
   def destroy
-    @activity = Activity.first
-    @activity .destroy
-    redirect_to activities_url
+    @activity = Activity.find(params[:id])
+    @activity.destroy
+    redirect_to activities_path
   end
 
+  def my_act  
+    @activity = Activity.find(params[:id])
+    @activities = Activity.where("user_id = ? AND name = ?", current_user.id, @activity.name)
+    if !@activities.any?
+      @activity_cu = @activity.dup
+      @activity_cu.user_id = current_user.id
+      @activity_cu.save
+    end
+    @my_activities = Activity.where("user_id = ?", current_user.id) 
+  end
+  
+  def time
+    @my_activities = Activity.where("user_id = ?", current_user.id)
+  end
+  
+  def history
+    @actings_cu = Acting.where("user_id = ?", current_user.id)
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_activity

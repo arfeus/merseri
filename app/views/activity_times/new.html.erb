@@ -1,0 +1,23 @@
+<div class="container">
+<h1>New activity_time</h1>
+
+<br  />
+<div class="panel panel-primary panel-form">
+		<div class="panel-body panel-primary">
+			<%= @activity.name %>
+			<br  />
+			<%= form_for(@activity_time, :html => { class: "form-mer"}) do |f| %>
+			   
+			   <%= f.label :'start/stop' %><br  />
+			   <%= f.text_field :start, value: DateTime.now, class: "form-control" %><br  />
+				 <%= f.text_field :stop, value: DateTime.now+1, class: "form-control" %><br  />
+				 <%= f.text_field :activity_id, value: @activity.id, class: "form-control" %><br  />
+				 <br  />
+			   <%= f.submit "Save", class: "btn btn-lg btn-primary btn-block" %>
+				 <span class="clearfix"></span>
+			<% end %>
+	</div>
+</div>
+
+<%= link_to 'Back', activities_path %>
+</div>

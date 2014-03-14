@@ -1,3 +1,3 @@
 class ActivityTime < ActiveRecord::Base
-  belongs_to :activity
+  belongs_to :acting
 end

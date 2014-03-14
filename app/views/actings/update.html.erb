@@ -1,0 +1,11 @@
+<div class="container">
+	<br  />
+	<h3><%= @activity.name.capitalize %> started at <%= @acting.start %></h3>
+	<h3><%= @activity.name.capitalize %> stopped at <%= @acting.stop %></h3>
+	<br  />
+	<h2><%= @activity.name.capitalize %> time was <%= distance_of_time_in_words(@acting.stop - @acting.start) %></h2>
+	<br  />
+	<br  />
+	<%= link_to "Time", time_path, class: "btn btn-lg btn-primary btn-block" %>
+
+</div>
