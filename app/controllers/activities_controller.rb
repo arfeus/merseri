@@ -11,7 +11,7 @@ class ActivitiesController < ApplicationController
   def create
     @activity = current_user.activities.new(activity_params)
     if @activity.save
-      redirect_to time_path, notice: 'Activity was successfully created.'
+      redirect_to action_path, notice: 'Activity was successfully created.'
     else
       render action: 'new'
     end
@@ -51,13 +51,14 @@ class ActivitiesController < ApplicationController
     @my_activities = Activity.where("user_id = ?", current_user.id) 
   end
   
-  def time
+  def action
     @my_activities = Activity.where("user_id = ?", current_user.id)
   end
   
   def history
     @actings_cu = Acting.where("user_id = ?", current_user.id)
   end
+
   
   private
     # Use callbacks to share common setup or constraints between actions.

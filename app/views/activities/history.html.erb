@@ -5,12 +5,12 @@
 	<ul>
 	<% @actings_cu.each do |a| %>
 	  <li>
-	  <%= Activity.find(a.activity_id).name.capitalize %> started <%= a.start.to_formatted_s(:short) %> and was exercised <%= distance_of_time_in_words(a.stop - a.start) %>
+	  "<%= Activity.find(a.activity_id).name.capitalize %>" started <%= a.start.to_formatted_s(:short) %> duration <%= Time.at(a.stop - a.start).utc.strftime("%H:%M:%S:") %>
     </li>
 	<% end %>
 	</ul>
 	<br  />
 	<br  />
-	<%= link_to "Time", time_path, class: "btn btn-lg btn-primary btn-block" %>
+	<%= link_to "Action", action_path, class: "btn btn-lg btn-primary btn-block" %>
 
 </div>

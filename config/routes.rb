@@ -43,7 +43,7 @@ Merseri::Application.routes.draw do
   match '/printing/collection_email', to: 'printing#collection_email', via: 'get', as: 'collection_email'
   match '/printing/remove_collection',to: 'printing#remove_collection',via: 'get', as: 'remove_collection'
  
-  match '/time',                      to: 'activities#time',           via: 'get', as: 'time'
+  match '/action',                  to: 'activities#action',       via: 'get', as: 'action'
   match '/history',                   to: 'activities#history',        via: 'get', as: 'history'
  
   match '/help',                      to: 'welcome#help',              via: 'get', as: 'help'
@@ -53,7 +53,7 @@ Merseri::Application.routes.draw do
   match '/welcome',                   to: 'welcome#welcome',           via: 'get', as: 'welcome'
 
   match '/diary',                     to: 'welcome#diary',             via: 'get', as: 'diary'
-  match '/netcommunity',              to: 'welcome#netcommunity',      via: 'get', as: 'netcommunity'
+  match '/reminder',                  to: 'welcome#reminder',          via: 'get', as: 'reminder'
   match '/inventory',                 to: 'welcome#inventory',         via: 'get', as: 'inventory'
   
   match '/users/:id/admin_on',   to: 'users#admin_on',    via: 'get', as: 'admin_on'

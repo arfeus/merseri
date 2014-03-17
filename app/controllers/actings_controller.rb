@@ -1,6 +1,7 @@
 class ActingsController < ApplicationController
 
-
+ before_action :on_activity, only: :new
+ 
   def new
     @acting = Acting.new
   end
@@ -10,8 +11,7 @@ class ActingsController < ApplicationController
   end
 
   def create
-    @acting = current_user.actings.new(acting_params)
-    
+    @acting = current_user.actings.new(acting_params)    
     if @acting.save
       redirect_to @acting, notice: 'Acting was successfully created.'
     else
@@ -28,7 +28,6 @@ class ActingsController < ApplicationController
     @acting = Acting.find(params[:id])
     @activity = Activity.find(@acting.activity_id)
   end
-  
 
   def update
     @acting = Acting.find(params[:id])
@@ -46,12 +45,20 @@ class ActingsController < ApplicationController
     @acting.destroy
     redirect_to actings_path
   end
-  
-  def ongoing
-    @activity = Activity.find(params[:id])
-  end
 
   private
+  
+  def on_activity
+    @activity = Activity.find(params[:activity_id])
+    @actings = Acting.where("user_id = ? AND activity_id = ?", current_user.id, @activity.id)
+    @actings.each do |a|
+      if a.start == a.stop
+        @acting = a
+        render 'show'
+      end
+    end
+  end
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_acting
       @acting = Acting.find(params[:id])

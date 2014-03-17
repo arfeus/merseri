@@ -1,8 +1,20 @@
 <% provide(:title, 'Welcome') %>
-<div class="container">	
+<div class="container">
 	<br  />
-	<%= link_to "TIME", time_path, class: "btn btn-primary btn-custom" %>
-	<%= link_to "DIARY", diary_path, method: :get, class: "btn btn-success btn-custom" %><br  />
-	<%= link_to "NETCOMMUNITY", netcommunity_path, method: :get, class: "btn btn-warning btn-custom" %>
-	<%= link_to "INVENTORY", inventory_path, method: :get, class: "btn btn-danger btn-custom" %>
+	<div class="row">
+    <div class="col-md-2">
+			<%= button_to "ACTION", action_path, method: :get, class: "btn btn-primary btn-custom" %>
+		</div>
+		<div class="col-md-2">
+			<%= button_to "DIARY", diary_path, method: :get, class: "btn btn-success btn-custom" %>
+		</div>
+	</div>
+	<div class="row">
+    <div class="col-md-2">
+			<%= button_to "REMINDER", reminder_path, method: :get, class: "btn btn-warning btn-custom" %>
+		</div>
+		<div class="col-md-2">
+			<%= button_to "INVENTORY", inventory_path, method: :get, class: "btn btn-danger btn-custom" %>
+	  </div>
+	</div>
 </div>
