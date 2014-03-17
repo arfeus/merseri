@@ -1,21 +1,30 @@
 <div class="container">
   <br  />
-  <% @activities.each do |activity| %>
-	<% @user = User.find(activity.user_id) %>
-  <div class="panel panel-primary">
-	  <div class="panel-heading">Created by <%= @user.name %></div>
-     <div class="panel-body panel-primary">
-       <div class="well">
-		     <%= activity.name %>
-		   </div>
-     <div class="panel-footer">
-	     <%= link_to 'Edit', edit_activity_path(activity) %>
-		 	 | <%= link_to 'Delete', activity, method: :delete, data: { confirm: 'Are you sure?' } %>
-			 | <%= link_to 'Start', new_acting_path(activity_id: activity.id) %><br  />
-			 <br  />
-			 <%= button_to "Add to myActivity w", my_act_activity_path(activity), method: :get, class: "btn btn-sm btn-success" %>
-     </div>
-    </div>
-  </div>
-	<% end %>
+	<% if @activities.empty? %>
+		<div class="row">  
+			<div class="col-md-6">
+				<%= link_to "new activity", new_activity_path, class: "btn btn-lg btn-primary btn-block" %>		
+	    </div>
+		</div>
+	<% else %>
+	  <% @activities.each do |activity| %>
+		<% @user = User.find(activity.user_id) %>
+	  <div class="panel panel-primary">
+		  <div class="panel-heading">Created by <%= @user.name %></div>
+	     <div class="panel-body panel-primary">
+	       <div class="well">
+			     <%= activity.name %>
+			   </div>
+	     <div class="panel-footer">
+		     <%= link_to 'Edit', edit_activity_path(activity) %>
+			 	 | <%= link_to 'Delete', activity, method: :delete, data: { confirm: 'Are you sure?' } %>
+				 | <%= link_to 'Start', new_acting_path(activity_id: activity.id) %><br  />
+				 <br  />
+				 <%= button_to "Add to myActivity w", my_act_activity_path(activity), method: :get, class: "btn btn-sm btn-success" %>
+	     </div>
+	    </div>
+	  </div>
+		<% end %>
+  <% end %>
+	
 </div>
