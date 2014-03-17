@@ -1,13 +1,13 @@
 <div class="panel panel-primary panel-form">
 		<div class="panel-body panel-primary">
 			<%= form_tag(mers_path, :method => "get", :html => { class: "form-search"}) do %>
-			  <%= text_field_tag :search, params[:search], placeholder: "Search for ideas...", class: "form-control" %>
+			  <%= text_field_tag :search, params[:search], placeholder: "Search for notes...", class: "form-control" %>
 			  <br  />
 				<%= submit_tag "Search", :name => nil, class: "btn btn-lg btn-primary btn-block" %>
 				<br  />
 			<% end %>
 			<div>
-			  <%= link_to "New idea", new_mer_path, class: "btn btn-lg btn-success btn-block" %>
+			  <%= link_to "New note", new_mer_path, class: "btn btn-lg btn-success btn-block" %>
 			</div %>
 			<br  />
 			<div>

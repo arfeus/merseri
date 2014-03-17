@@ -52,7 +52,7 @@ Merseri::Application.routes.draw do
   match '/newuser',                   to: 'welcome#newuser',           via: 'get', as: 'newuser'
   match '/welcome',                   to: 'welcome#welcome',           via: 'get', as: 'welcome'
 
-  match '/diary',                     to: 'welcome#diary',             via: 'get', as: 'diary'
+  match '/notes',                     to: 'welcome#notes',             via: 'get', as: 'notes'
   match '/reminder',                  to: 'welcome#reminder',          via: 'get', as: 'reminder'
   match '/inventory',                 to: 'welcome#inventory',         via: 'get', as: 'inventory'
   
