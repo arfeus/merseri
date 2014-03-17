@@ -63,7 +63,7 @@ class MersController < ApplicationController
     @mer = Mer.find(params[:id])
     @mer.destroy
     session[:print].delete_if {|item| item == @mer.id }   
-    redirect_to :back
+    redirect_to root_path
   end
   
   def vote_up
