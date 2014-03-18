@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   
   has_many :mers, dependent: :destroy
   has_many :actings, dependent: :destroy
-  has_many :activities
+  has_many :activities, dependent: :destroy
   
   before_save { self.email = email.downcase }
   before_create :create_remember_token

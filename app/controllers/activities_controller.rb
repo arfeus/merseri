@@ -18,7 +18,17 @@ class ActivitiesController < ApplicationController
   end
 
   def index
-    @activities = Activity.all
+    @my_activities = Activity.where("user_id = ?", current_user.id).uniq_by(&:name).to_a()
+    @all_activities = Activity.all.uniq_by(&:name).to_a()
+    @activities = @all_activities
+    @my_activities.each do |a|
+       @all_activities.each do |m|
+         if a.name == m.name
+           @index = @activities.index(m)
+           @activities.delete_at(@index)        
+         end        
+       end
+     end
   end
 
   def show
