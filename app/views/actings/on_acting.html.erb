@@ -1,0 +1,13 @@
+<div class="container">
+	<br  />
+	<% @on_actings.each do |o| %>
+	<h3>"<%= Activity.find(o.activity_id).name %>" started at <%= o.start %></h3>
+	  <%= link_to "link to this action", new_acting_path(activity_id: o.activity_id), class: "btn btn-lg btn-primary" %>
+	
+	<br  />
+	<br  />
+	<br  />
+	
+	<%= link_to "Action", action_path, class: "btn btn-lg btn-primary btn-block" %>
+<% end %>
+</div>

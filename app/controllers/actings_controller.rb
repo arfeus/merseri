@@ -45,6 +45,16 @@ class ActingsController < ApplicationController
     @acting.destroy
     redirect_to actings_path
   end
+  
+  def on_acting
+    @actings = Acting.where("user_id = ? ", current_user.id)
+    @on_actings = Array.new
+    @actings.each do |a|
+      if a.start == a.stop
+        @on_actings.push(a)
+      end
+    end
+  end
 
   private
   

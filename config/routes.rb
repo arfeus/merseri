@@ -45,6 +45,7 @@ Merseri::Application.routes.draw do
  
   match '/action',                  to: 'activities#action',       via: 'get', as: 'action'
   match '/history',                   to: 'activities#history',        via: 'get', as: 'history'
+  match '/on_acting',                    to: 'actings#on_acting',            via: 'get', as: 'on_acting'
  
   match '/help',                      to: 'welcome#help',              via: 'get', as: 'help'
   match '/about',                     to: 'welcome#about',             via: 'get'
