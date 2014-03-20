@@ -1,17 +1,14 @@
 <div class="container">
+	<br  />	
 	<br  />
-	<p>
-	  <strong>User:</strong>
-	  <%= current_user.name %>
-	</p>
-	<h2><%= @activity.name.capitalize %> started at <%= @acting.created_at %></h2>
+	<h3><%= @activity.name %> started at <%= @acting.start %></h3>
+	<h3><%= @activity.name %> stopped at <%= @acting.stop %></h3>
 	<br  />
-	<%= link_to "Stop", acting_path(@acting), method: :patch, class: "btn btn-lg btn-danger" %>
+	<h2><%= @activity.name.capitalize %> duration was <%= Time.at(@acting.stop - @acting.start).utc.strftime("%H:%M:%S") %></h2>
 	<br  />
 	<br  />
-	<%= link_to 'Edit', edit_acting_path(@acting) %> |
-	<%= link_to 'Delete', acting_path(@acting), method: :delete, data: { Confirm: 'Are you sure?' } %> |
-	<%= link_to 'Action', action_path %>
-
+	<%= link_to "Action", action_path, class: "btn btn-lg btn-primary" %>
+	<br  />
+	<%= link_to 'Delete', acting_path(@acting.id), method: :delete, data: { Confirm: 'Are you sure?' } %> |
 
 </div>

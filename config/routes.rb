@@ -1,5 +1,7 @@
 Merseri::Application.routes.draw do
 
+  resources :calenders
+
   resources :actings
 
   resources :users do

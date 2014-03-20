@@ -13,7 +13,7 @@ class ActingsController < ApplicationController
   def create
     @acting = current_user.actings.new(acting_params)    
     if @acting.save
-      redirect_to @acting, notice: 'Acting was successfully created.'
+      redirect_to actings_path, notice: 'Acting was successfully created.'
     else
       render action: 'new' 
     end
@@ -61,10 +61,11 @@ class ActingsController < ApplicationController
   def on_activity
     @activity = Activity.find(params[:activity_id])
     @actings = Acting.where("user_id = ? AND activity_id = ?", current_user.id, @activity.id)
+    @on_actings = Array.new
     @actings.each do |a|
       if a.start == a.stop
-        @acting = a
-        render 'show'
+        @on_actings.push(a)
+        render 'on_acting'
       end
     end
   end

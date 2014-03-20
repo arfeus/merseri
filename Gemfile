@@ -61,6 +61,9 @@ gem 'bootstrap-will_paginate'
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
+# Adam Shaw's excellent fullcalendar jquery plugin
+gem 'fullcalendar-rails'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
