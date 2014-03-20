@@ -2,13 +2,14 @@
 <div class="container">
 	<h1>Notes in this collection</h1>
 	<br  />
-	
   <% if @mers.empty? %>
 	  <h2>Collection is empty.</h2>
   <% else %>
+
 	  <% @mers.each do |mer| %>
 		  <% @mer = mer %>
-		  <%= render 'mers/show_title' %> 
+			<%= link_to 'remove from collection', remove_this_collection_mer_path(mer), class: "btn btn-sm btn-primary"  %>
+		  <%= render 'mers/show_short' %> 
 		<% end %>
 		<ul>
 		  <li><h3><%= link_to 'Empty collection', remove_collection_path  %></h3></li>

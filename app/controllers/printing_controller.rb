@@ -7,10 +7,8 @@ class PrintingController < ApplicationController
     @mers = current_user.mers
   end
   
-  def add_collection
-    @mer_added = Mer.find(params[:id])
-    session[:print] = Array.new unless session[:print]
-    session[:print].push(@mer_added.id)
+  def remove_collection
+    session[:print] = Array.new
   end
   
   def print_collection
@@ -27,10 +25,4 @@ class PrintingController < ApplicationController
     @mers = Mer.order('vote DESC').find(session[:print])
     UserMailer.collection_email(@mers, @user).deliver
   end
-  
-  def remove_collection
-    session[:print] = Array.new
-  end
-  
-
 end

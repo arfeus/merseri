@@ -82,6 +82,18 @@ class MersController < ApplicationController
     redirect_to :back
   end
   
+  def add_collection
+    @mer = Mer.find(params[:id])
+    session[:print] = Array.new unless session[:print]
+    session[:print].push(@mer.id)
+  end
+  
+  def remove_this_collection
+    @mer = Mer.find(params[:id])
+    session[:print].delete(@mer.id)
+    redirect_to print_collection_path
+  end
+  
   private
     def mer_params
       params.require(:mer).permit(:title, :text, :vote, :tag_list, :search)

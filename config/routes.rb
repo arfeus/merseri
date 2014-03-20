@@ -20,6 +20,8 @@ Merseri::Application.routes.draw do
     member do
       put :vote_up
       put :vote_down
+      get :add_collection
+      get :remove_this_collection
     end
   end
   
@@ -37,7 +39,6 @@ Merseri::Application.routes.draw do
   match '/signout',                   to: 'sessions#destroy',          via: 'delete'
   match '/search',                    to: 'welcome#search',            via: 'get', as: 'search'
   
-  match '/printing/add_collection',   to: 'printing#add_collection',   via: 'get', as: 'add_collection'
   match '/printing/print_collection', to: 'printing#print_collection', via: 'get', as: 'print_collection' 
   match '/printing/print_all',        to: 'printing#print_all',        via: 'get', as: 'print_all'
   match '/printing/collection_email', to: 'printing#collection_email', via: 'get', as: 'collection_email'
