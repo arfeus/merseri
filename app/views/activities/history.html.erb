@@ -5,7 +5,7 @@
 	<ul>
 	<% @actings_cu.each do |a| %>
 	  <li>
-	  "<%= Activity.find(a.activity_id).name.capitalize %>" started <%= a.start.to_formatted_s(:short) %> duration <%= Time.at(a.stop - a.start).utc.strftime("%H:%M:%S:") %>
+	  "<%= Activity.find(a.activity_id).name %>" started <%= a.start.to_formatted_s(:short) %> duration <%= Time.at(a.stop - a.start).utc.strftime("%H:%M:%S:") %>
     </li>
 	<% end %>
 	</ul>

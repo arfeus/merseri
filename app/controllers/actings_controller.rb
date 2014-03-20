@@ -43,7 +43,7 @@ class ActingsController < ApplicationController
   def destroy
     @acting = Acting.find(params[:id])
     @acting.destroy
-    redirect_to actings_path
+    redirect_to action_path
   end
   
   def on_acting

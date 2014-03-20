@@ -15,6 +15,9 @@ $(document).ready ->
 				        right: 'month,agendaWeek,agendaDay'
 				    },
 						
+				eventColor: 'darkGray',
+				eventTextColor: 'black'
+						
 				events: '/actings.json'
 				
     })
