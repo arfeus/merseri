@@ -1,5 +1,7 @@
 Merseri::Application.routes.draw do
 
+  resources :items
+
   resources :actings
 
   resources :users do
@@ -54,9 +56,9 @@ Merseri::Application.routes.draw do
   match '/newuser',                   to: 'welcome#newuser',           via: 'get', as: 'newuser'
   match '/welcome',                   to: 'welcome#welcome',           via: 'get', as: 'welcome'
 
-  match '/notes',                     to: 'welcome#notes',             via: 'get', as: 'notes'
-  match '/timeline',                  to: 'welcome#timeline',          via: 'get', as: 'timeline'
-  match '/inventory',                 to: 'welcome#inventory',         via: 'get', as: 'inventory'
+  match '/notes_page',                     to: 'welcome#notes_page',             via: 'get', as: 'notes_page'
+  match '/timeline_page',                  to: 'welcome#timeline_page',          via: 'get', as: 'timeline_page'
+  match '/inventory_page',                 to: 'welcome#inventory_page',         via: 'get', as: 'inventory_page'
   
   match '/users/:id/admin_on',   to: 'users#admin_on',    via: 'get', as: 'admin_on'
   match '/users/:id/admin_off',  to: 'users#admin_off',   via: 'get', as: 'admin_off'
