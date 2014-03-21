@@ -1,17 +1,36 @@
 <div class="container">
 	<br  />
 	<h2><%= current_user.name %> all activities</h2>
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Activity....</th>
+	      <th>started.............</th>
+	      <th>duration........</th>
+	      <th></th>
+	      <th></th>
+				<th></th>
+	    </tr>
+	  </thead>
+
+	  <tbody>
+	    <% @actings_cu.each do |a| %>
+	      <tr>
+	        <td><%= Activity.find(a.activity_id).name %></td>
+	        <td><%= a.start.to_formatted_s(:short) %></td>
+					<td><%= Time.at(a.stop - a.start).utc.strftime("%H:%M:%S") %></td>
+	        <td><%= link_to 'Show', acting_path(a) %></td>
+	        <td> |<%= link_to 'Edit', edit_acting_path(a) %></td>
+	        <td> |<%= link_to 'Destroy', acting_path(a), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+
 	<br  />
-	<ul>
-	<% @actings_cu.each do |a| %>
-	  <li>
-	  "<%= Activity.find(a.activity_id).name %>" started <%= a.start.to_formatted_s(:short) %> duration <%= Time.at(a.stop - a.start).utc.strftime("%H:%M:%S:") %>
-    </li>
-	<% end %>
-	</ul>
+	<%= link_to "On_acting", on_acting_path, class: "btn btn-lg btn-primary" %>
 	<br  />
-	<%= link_to "On_acting", on_acting_path, class: "btn btn-lg btn-primary btn-block" %>
 	<br  />
-	<%= link_to "Action", action_path, class: "btn btn-lg btn-primary btn-block" %>
+	<%= link_to "Action", action_path, class: "btn btn-lg btn-primary" %>
 
 </div>
