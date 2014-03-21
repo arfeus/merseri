@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.4'
 gem 'pg'
 gem 'rails_12factor'
 
@@ -17,8 +17,9 @@ group :production do
 end
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '>= 3.2' # sass-rails needs to be higher than 3.2
+gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 3.1.1'
+gem 'sprockets', '2.11.0'
 
 # Use twitter bootstrap less stylesheet
 #gem "therubyracer"

@@ -1,7 +1,5 @@
 Merseri::Application.routes.draw do
 
-  resources :calenders
-
   resources :actings
 
   resources :users do
@@ -46,9 +44,9 @@ Merseri::Application.routes.draw do
   match '/printing/collection_email', to: 'printing#collection_email', via: 'get', as: 'collection_email'
   match '/printing/remove_collection',to: 'printing#remove_collection',via: 'get', as: 'remove_collection'
  
-  match '/action',                  to: 'activities#action',       via: 'get', as: 'action'
+  match '/action',                    to: 'activities#action',         via: 'get', as: 'action'
   match '/history',                   to: 'activities#history',        via: 'get', as: 'history'
-  match '/on_acting',                    to: 'actings#on_acting',            via: 'get', as: 'on_acting'
+  match '/on_acting',                 to: 'actings#on_acting',         via: 'get', as: 'on_acting'
  
   match '/help',                      to: 'welcome#help',              via: 'get', as: 'help'
   match '/about',                     to: 'welcome#about',             via: 'get'
@@ -57,7 +55,7 @@ Merseri::Application.routes.draw do
   match '/welcome',                   to: 'welcome#welcome',           via: 'get', as: 'welcome'
 
   match '/notes',                     to: 'welcome#notes',             via: 'get', as: 'notes'
-  match '/reminder',                  to: 'welcome#reminder',          via: 'get', as: 'reminder'
+  match '/timeline',                  to: 'welcome#timeline',          via: 'get', as: 'timeline'
   match '/inventory',                 to: 'welcome#inventory',         via: 'get', as: 'inventory'
   
   match '/users/:id/admin_on',   to: 'users#admin_on',    via: 'get', as: 'admin_on'
