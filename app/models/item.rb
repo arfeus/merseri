@@ -7,4 +7,9 @@ class Item < ActiveRecord::Base
   
   validates :name, :presence => {:message => 'Item name cannot be blank'}, :length => { :minimum => 3 }
 
+  def self.search(query)
+   # where(:title, query) -> This would return an exact match of the query
+   where("name like ?", "%#{query}%") 
+  end
+  
 end

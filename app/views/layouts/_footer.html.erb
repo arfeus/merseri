@@ -1,4 +1,8 @@
 <div id="footer">
+	<%= link_to "ACTION", action_path, method: :get, class: "btn btn-primary" %>
+	<%= link_to "NOTES", notes_page_path, method: :get, class: "btn btn-success" %>
+	<%= link_to "TIMELINE", timeline_page_path, method: :get, class: "btn btn-warning" %>
+	<%= link_to "INVENTORY", inventory_page_path, method: :get, class: "btn btn-danger" %>
   <div class="container small">
     ©iNERO <%= Time.now.year %>
 		<%= link_to "About", about_path %>
