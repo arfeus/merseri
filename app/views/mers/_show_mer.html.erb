@@ -7,7 +7,7 @@
 		</div>
 		Tags:
     <div class="well">
-			<%= raw @mer.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+			<%= raw @mer.tag_list.map { |t| link_to t, tag_mers_path(t) }.join(', ') %>
 		</div>
   </div>	
   <div class="panel-footer">

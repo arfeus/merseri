@@ -3,13 +3,23 @@ class ItemsController < ApplicationController
 
   # GET /items
   # GET /items.json
-  def index
-    @items = Item.all
+  def index    
+    if params[:search] && current_user.admin?
+      @items = Item.all.search(params[:search]).order('name DESC')
+    elsif params[:tag] && current_user.admin?
+      @items = Item.all.tagged_with(params[:tag])
+    elsif params[:search]
+      @items = current_user.items.search(params[:search]).order('name DESC')
+    elsif params[:tag]
+      @items = current_user.items.tagged_with(params[:tag])
+    end
   end
 
   # GET /items/1
   # GET /items/1.json
   def show
+    @item = Item.find(params[:id])
+    @user = User.find(@item.user_id)
   end
 
   # GET /items/new
@@ -60,6 +70,9 @@ class ItemsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def search
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -69,6 +82,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :description, :user_id, :set_time, :alarm)
+      params.require(:item).permit(:name, :description, :user_id, :set_time, :alarm, :tag_list, :search)
     end
 end

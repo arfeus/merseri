@@ -1,6 +1,8 @@
 Merseri::Application.routes.draw do
 
-  resources :items
+  resources :items do
+    resources :tags
+  end
 
   resources :actings
 
@@ -35,11 +37,12 @@ Merseri::Application.routes.draw do
   
   
   
-  root  'welcome#search'
+  root  'mers#search'
   match '/signup',                    to: 'users#new',                 via: 'get'
   match '/signin',                    to: 'sessions#new',              via: 'get'
   match '/signout',                   to: 'sessions#destroy',          via: 'delete'
-  match '/search',                    to: 'welcome#search',            via: 'get', as: 'search'
+  match '/search/mers',               to: 'mers#search',               via: 'get', as: 'search_mers'
+  match '/search/items',              to: 'items#search',              via: 'get', as: 'search_items'
   
   match '/printing/print_collection', to: 'printing#print_collection', via: 'get', as: 'print_collection' 
   match '/printing/print_all',        to: 'printing#print_all',        via: 'get', as: 'print_all'
@@ -63,7 +66,8 @@ Merseri::Application.routes.draw do
   match '/users/:id/admin_on',   to: 'users#admin_on',    via: 'get', as: 'admin_on'
   match '/users/:id/admin_off',  to: 'users#admin_off',   via: 'get', as: 'admin_off'
   
-  get 'tags/:tag',    to: 'mers#index',   as: :tag
+  get '/mers/tags/:tag',    to: 'mers#index',   as: :tag_mers
+  get 'items/tags/:tag',    to: 'items#index',   as: :tag_items
 
   
   # The priority is based upon order of creation: first created -> highest priority.

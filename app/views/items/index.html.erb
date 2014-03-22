@@ -1,3 +1,18 @@
+<% provide(:title, 'Notes') %>
+<div class="container">
+  <br  />
+	<div class="container">
+		<%= render 'items/search' %>
+		<br  />
+	  <% @items.each do |i| %>
+		<% @item = i %>
+		<% @user = User.find(i.user_id) %>
+		<%= render 'show_item' %>			  
+	  <% end %>
+  </div>
+</div>
+
+
 <div class="container">
 <h1>Listing items</h1>
 

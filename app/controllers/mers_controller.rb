@@ -94,6 +94,9 @@ class MersController < ApplicationController
     redirect_to print_collection_path
   end
   
+  def search
+  end
+  
   private
     def mer_params
       params.require(:mer).permit(:title, :text, :vote, :tag_list, :search)
