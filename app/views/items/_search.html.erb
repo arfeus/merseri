@@ -1,0 +1,17 @@
+<div class="panel panel-primary panel-form">
+		<div class="panel-body panel-primary">
+			<%= form_tag(items_path, :method => "get", :html => { class: "form-search"}) do %>
+			  <%= text_field_tag :search, params[:search], placeholder: "Search for inventory items...", class: "form-control" %>
+			  <br  />
+				<%= submit_tag "Search", :name => nil, class: "btn btn-lg btn-primary btn-block" %>
+				<br  />
+			<% end %>
+			<div>
+			  <%= link_to "New item", new_item_path, class: "btn btn-lg btn-success" %>
+			</div %>
+			<br  />
+			<div id="tag_cloud">
+			  <%= render 'items/tagcloud' %>
+			</div>
+		</div>
+</div>

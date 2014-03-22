@@ -1,0 +1,21 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">by <%= @user.name %>, created on <%= @item.created_at.localtime.to_formatted_s(:rfc822) %></div>
+  <div class="panel-body panel-primary">
+		Name:
+    <div class="well">
+			<%= @item.name %>
+		</div>
+		Descpription:
+    <div class="well">
+			<%= @item.description %>
+		</div>
+		Tags:
+    <div class="well">
+			<%= raw @item.tag_list.map { |t| link_to t, tag_items_path(t) }.join(', ') %>
+		</div>
+  </div>	
+  <div class="panel-footer">
+				  	
+	</div>
+</div>
+	
