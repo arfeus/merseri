@@ -1,5 +1,8 @@
 class WelcomeController < ApplicationController
-  def search
+
+  before_action :sign_in
+  
+  def sign_in
     if !current_user
       redirect_to signin_path
     end
