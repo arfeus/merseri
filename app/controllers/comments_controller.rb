@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+    
+  layout 'notes_layout'
+  
   def create
     @mer = Mer.find(params[:mer_id])
     @comment = @mer.comments.create(comment_params)

@@ -1,4 +1,7 @@
 class PrintingController < ApplicationController
+  
+  layout 'notes_layout'
+    
   def print_selected
     @mer = current_user
   end

@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+  
+  layout 'items_layout'
+  
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   # GET /items

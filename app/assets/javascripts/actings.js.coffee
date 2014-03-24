@@ -10,7 +10,7 @@ $(document).ready ->
         # put your options and callbacks here
 
 				header: {
-				        left: 'prev,next today',
+				        left: 'today,next,prev',
 				        center: 'title',
 				        right: 'month,agendaWeek,agendaDay'
 				    },

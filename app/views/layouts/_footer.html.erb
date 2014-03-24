@@ -1,4 +1,4 @@
-<div id="footer">
+
 	<% if current_user %>
 	<%= link_to "ACTION", action_path, method: :get, class: "btn btn-primary" %>
 	<%= link_to "NOTES", notes_page_path, method: :get, class: "btn btn-success" %>
@@ -9,4 +9,3 @@
     ©iNERO <%= Time.now.year %>
 		<%= link_to "About", about_path %>
   </div>
-</div>

@@ -1,5 +1,8 @@
 class ActivitiesController < ApplicationController
 
+
+  layout 'actions_layout'
+
   def new
     @activity = Activity.new
   end

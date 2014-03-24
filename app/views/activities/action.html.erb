@@ -1,29 +1,26 @@
 <div class="container">	
 	
-  <h1>Welcome to ACTION</h1>
-	<div class="row">  
-		<div class="col-md-6">
-			<%= link_to "new activity", new_activity_path, class: "btn btn-lg btn-primary btn-block" %>		
-    </div>
-		<div class="col-md-6">
-      <%= link_to "Show activities", activities_path, class: "btn btn-lg btn-primary btn-block" %><br  />
-	  </div>
-  </div>
+  <h1>Select activity</h1>
 	<br  />
 	<div class="row"> 
-		<% @my_activities.each do |my_activity| %> 
+		<% @my_activities.each do |m| %> 
 		<div class="col-md-4">
-			<%= link_to my_activity.name, new_acting_path(activity_id: my_activity.id), class: "btn btn-lg btn-warning btn-block" %>
-			<br  />
+			<%= link_to new_acting_path(activity_id: m.id), class: "btn btn-lg btn-warning btn-block" do %>
+			  <%= m.name %>
+			  <% m.actings.all.each do |a| %>
+			    <% if a.start == a.stop %>
+			      ongoing...
+			    <% end %>
+		  	<% end %>
+			<% end %>
+		  <br  />
 		</div>
-		<% end %>
+	  <% end %>
 	</div>
 	<br  />
 	<div class="row">  
 		<div class="col-md-12">
-			<%= link_to "Ongoing", on_acting_path, class: "btn btn-lg btn-success" %>
 			<%= link_to "History", history_path, class: "btn btn-lg btn-success" %>
-			<%= link_to "Welcome", welcome_path, class: "btn btn-lg btn-success" %>
 		</div>
 	</div>		
 </div>

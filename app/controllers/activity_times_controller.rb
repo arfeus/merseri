@@ -1,4 +1,6 @@
 class ActivityTimesController < ApplicationController
+  
+  layout 'timeline_layout'
    
   def create   
     @activity = Activity.find(params[:activity_id])

@@ -1,5 +1,7 @@
 class MersController < ApplicationController
 
+  layout 'notes_layout'
+
   def new
     @mer = Mer.new
   end

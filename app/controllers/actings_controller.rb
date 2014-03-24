@@ -1,5 +1,7 @@
 class ActingsController < ApplicationController
 
+ layout 'actions_layout'
+
  before_action :on_activity, only: :new
  
   def new
@@ -13,7 +15,7 @@ class ActingsController < ApplicationController
   def create
     @acting = current_user.actings.new(acting_params)    
     if @acting.save
-      redirect_to actings_path, notice: 'Acting was successfully created.'
+      redirect_to action_path, notice: 'Acting was successfully created.'
     else
       render action: 'new' 
     end
