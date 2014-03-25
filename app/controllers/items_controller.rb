@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   
   layout 'items_layout'
+  before_action :sign_in_check
   
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 

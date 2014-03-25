@@ -1,6 +1,7 @@
 class ActingsController < ApplicationController
 
  layout 'actions_layout'
+ before_action :sign_in_check
 
  before_action :on_activity, only: :new
  

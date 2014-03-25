@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
     
   layout 'notes_layout'
+  before_action :sign_in_check
   
   def create
     @mer = Mer.find(params[:mer_id])

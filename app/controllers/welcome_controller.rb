@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
 
-  before_action :sign_in
+  before_action :sign_in_check
   
   def sign_in
     if !current_user

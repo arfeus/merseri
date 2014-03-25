@@ -2,6 +2,7 @@ class ActivitiesController < ApplicationController
 
 
   layout 'actions_layout'
+  before_action :sign_in_check
 
   def new
     @activity = Activity.new

@@ -1,7 +1,8 @@
 class MersController < ApplicationController
 
   layout 'notes_layout'
-
+  before_action :sign_in_check
+  
   def new
     @mer = Mer.new
   end

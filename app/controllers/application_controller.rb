@@ -4,4 +4,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
   ActsAsTaggableOn.delimiter = [' ',',']
+  
+  
+  def sign_in_check
+    if !current_user
+      redirect_to signin_path
+    end
+  end
+  
 end

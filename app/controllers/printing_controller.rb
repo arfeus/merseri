@@ -1,6 +1,7 @@
 class PrintingController < ApplicationController
   
   layout 'notes_layout'
+  before_action :sign_in_check
     
   def print_selected
     @mer = current_user
