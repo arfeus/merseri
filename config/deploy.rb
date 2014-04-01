@@ -1,14 +1,16 @@
 # config valid only for Capistrano 3.1
 lock '3.1.0'
 
-set :application, 'my_app_name'
-set :repo_url, 'git@example.com:me/my_repo.git'
+set :application, 'merseri'
+
+set :repo_url, 'https://github.com/arfeus/merseri.git '
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 # Default deploy_to directory is /var/www/my_app
 # set :deploy_to, '/var/www/my_app'
+set :deploy_to, "/var/www/merseri"
 
 # Default value for :scm is :git
 # set :scm, :git
