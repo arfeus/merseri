@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  # before_action :signed_in_user, only: [:index, :edit, :update, :destroy]
-  before_action :signed_in_user
+  before_action :signed_in_user, only: [:index, :edit, :update, :destroy, :admin_on, :admin_off]
+  # before_action :signed_in_user
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
 
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      UserMailer.welcome_email(@user).deliver
+      /UserMailer.welcome_email(@user).deliver/
       sign_in @user
       flash[:notice] = "Welcome, you are now user of merseri!"
       redirect_to newuser_path

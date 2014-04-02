@@ -3,7 +3,7 @@ lock '3.1.0'
 
 set :application, 'merseri'
 
-set :repo_url, 'https://github.com/arfeus/merseri.git '
+set :repo_url, 'https://arfeus:660666576794a91f394bf66638e2837271b450c9@github.com/arfeus/merseri.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
