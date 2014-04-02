@@ -40,7 +40,7 @@ Merseri::Application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = true
+#  config.force_ssl = true
 
   # Set to :debug to see everything in the log.
   config.log_level = :info
@@ -79,7 +79,7 @@ Merseri::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
   
   # Action_mailer configuration for production
-  config.action_mailer.delivery_method = :smtp
+#  config.action_mailer.delivery_method = :smtp
   #config.action_mailer.perform_deliveries = true
   #config.action_mailer.raise_delivery_errors = true
   
@@ -93,15 +93,15 @@ Merseri::Application.configure do
  #   authentication:       'plain',
  #   enable_starttls_auto: true  }
   
-    ActionMailer::Base.smtp_settings = {
-      :address        => 'smtp.sendgrid.net',
-      :port           => '587',
-      :authentication => :plain,
-      :user_name      => ENV['SENDGRID_USERNAME'],
-      :password       => ENV['SENDGRID_PASSWORD'],
-      :domain         => 'heroku.com',
-      :enable_starttls_auto => true
-    }
+  #  ActionMailer::Base.smtp_settings = {
+  #    :address        => 'smtp.sendgrid.net',
+  #    :port           => '587',
+  #    :authentication => :plain,
+  #    :user_name      => ENV['SENDGRID_USERNAME'],
+  #    :password       => ENV['SENDGRID_PASSWORD'],
+  #    :domain         => 'heroku.com',
+  #    :enable_starttls_auto => true
+  #  }
   
   
 end
