@@ -10,7 +10,7 @@ set :repo_url, 'https://arfeus:660666576794a91f394bf66638e2837271b450c9@github.c
 
 # Default deploy_to directory is /var/www/my_app
 # set :deploy_to, '/var/www/my_app'
-set :deploy_to, "/var/www/merseri"
+set :deploy_to, "/var/www/merseri.com"
 
 # Default value for :scm is :git
 # set :scm, :git
