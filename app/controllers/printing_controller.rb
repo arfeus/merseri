@@ -27,6 +27,6 @@ class PrintingController < ApplicationController
   def collection_email
     @user = current_user
     @mers = Mer.order('vote DESC').find(session[:print])
-    /UserMailer.collection_email(@mers, @user).deliver/
+    UserMailer.collection_email(@mers, @user).deliver
   end
 end

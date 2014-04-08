@@ -19,7 +19,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      /UserMailer.welcome_email(@user).deliver/
+      UserMailer.welcome_email(@user).deliver
+      UserMailer.new_signup_notice(@user).deliver
       sign_in @user
       flash[:notice] = "Welcome, you are now user of merseri!"
       redirect_to newuser_path
