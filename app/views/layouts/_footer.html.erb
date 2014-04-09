@@ -1,9 +1,9 @@
-<div class="container">
+
 	<% if current_user %>
-	<%= link_to "ACTION", action_path, method: :get, class: "btn btn-primary" %>
-	<%= link_to "NOTES", notes_page_path, method: :get, class: "btn btn-success" %>
-	<%= link_to "TIMELINE", timeline_page_path, method: :get, class: "btn btn-warning" %>
-	<%= link_to "INVENTORY", inventory_page_path, method: :get, class: "btn btn-danger" %>
+	<%= link_to "ACT", action_path, method: :get, class: "btn btn-primary" %>
+	<%= link_to "NOT", notes_page_path, method: :get, class: "btn btn-success" %>
+	<%= link_to "TIM", timeline_page_path, method: :get, class: "btn btn-warning" %>
+	<%= link_to "INV", inventory_page_path, method: :get, class: "btn btn-danger" %>
 	<% end %>
   <div class="container small">
     ©iNERO <%= Time.now.year %>
@@ -14,4 +14,3 @@
 			</script>
 		</span>
   </div>
-</div>

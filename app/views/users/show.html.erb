@@ -8,17 +8,11 @@
 		    <%=  " is an admin " %>
 				<% else %>
 				<%= " is an user " %>
-
 		  <% end %>
-		  <% if current_user.admin? && !current_user?(@user) %>
-		    <% if !@user.admin %>
-		    | <%= link_to "admin_on", admin_on_path(@user.id) %>
-			<% else %>
-			| <%= link_to "user_on", admin_off_path(@user.id) %>
-			<% end %>
-		    | <%= link_to "delete", user, method: :delete,
-		                                  data: { confirm: "You sure?" } %>
-		  <% end %>
+			<br  />
+			<br  />
+			<%= button_to "delete me", @user, method: :delete,
+		                                  data: { confirm: "Are you sure? This delete "+@user.name+" and "+@user.name+"'s all data forever and can't be undone!" }, class: "btn-danger" %>
 		</li>
 	</ul>
 

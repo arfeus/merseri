@@ -5,6 +5,9 @@
 		<li class="divider"></li>
 		<% if current_user.admin?%>
       <li class="<%= 'active' if current_page?(users_path) %>"><%= link_to "All users", users_path %></li>
+			<li class="divider"></li>
+		<% else %>
+		  <li class="<%= 'active' if current_page?(users_path) %>"><%= link_to "My info", users_path %></li>
       <li class="divider"></li>
 		<% end %>
     <li class="<%= 'active' if current_page?(signout_path) %>"><%= link_to "Sign out", signout_path, method: "delete" %></li>

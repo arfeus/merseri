@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_action :signed_in_user, only: [:index, :edit, :update, :destroy, :admin_on, :admin_off]
   # before_action :signed_in_user
   before_action :correct_user,   only: [:edit, :update]
-  before_action :admin_user,     only: :destroy
+
 
   def index
     if current_user.admin?
