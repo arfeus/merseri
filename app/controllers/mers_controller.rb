@@ -7,7 +7,7 @@ class MersController < ApplicationController
     @mer = Mer.new
   end
   
-  def create    
+  def create 
     @mer = current_user.mers.new(mer_params)
     if mer_params[:title] == "" then
       @mer.text = @mer.text.sub("---",'')
@@ -32,6 +32,9 @@ class MersController < ApplicationController
     end
   end
   
+  
+  
+  
   def show
     @mer = Mer.find(params[:id])
     @user = User.find(@mer.user_id)
@@ -46,6 +49,8 @@ class MersController < ApplicationController
       @mers = current_user.mers.search(params[:search]).order('vote DESC')
     elsif params[:tag]
       @mers = current_user.mers.tagged_with(params[:tag])
+    elsif
+      @mers = current_user.mers
     end
   end
     

@@ -16,6 +16,8 @@ class ItemsController < ApplicationController
       @items = current_user.items.search(params[:search]).order('name DESC')
     elsif params[:tag]
       @items = current_user.items.tagged_with(params[:tag])
+    elsif
+      @items = current_user.items
     end
   end
 

@@ -29,11 +29,13 @@ class UsersController < ApplicationController
     end
   end
   
+  
+  
   def edit
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find(params[:id])   
     if params[:user][:admin] == '1'
       @user.update_attribute :admin, true
     else
@@ -42,7 +44,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       flash[:notice] = "Profile updated"
       sign_in @user
-      redirect_to @user
+      render 'edit'
     else
       render 'edit'
     end
