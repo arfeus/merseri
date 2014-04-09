@@ -1,11 +1,19 @@
 class UsersController < ApplicationController
+  
+  layout 'welcome_layout'
+  
   before_action :signed_in_user, only: [:index, :edit, :update, :destroy, :admin_on, :admin_off]
   # before_action :signed_in_user
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
 
   def index
-    @users = User.paginate(page: params[:page])
+    if current_user.admin?
+      @users = User.paginate(page: params[:page])
+    else
+      @user = current_user
+      redirect_to user_path(@user)
+    end
   end
     
   def show
@@ -62,19 +70,15 @@ class UsersController < ApplicationController
   end
   
   def admin_on
-    if current_user.admin?
       @user = User.find(params[:id])
       @user.update_attribute :admin, true
       redirect_to users_path
-    end
   end
   
   def admin_off
-    if current_user.admin?
       @user = User.find(params[:id])
       @user.update_attribute :admin, false
       redirect_to users_path
-    end
   end
   
   private

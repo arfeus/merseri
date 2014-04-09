@@ -64,8 +64,8 @@ Merseri::Application.routes.draw do
   match '/timeline_page',                  to: 'timelines#timeline_page',          via: 'get', as: 'timeline_page'
   match '/inventory_page',                 to: 'items#inventory_page',         via: 'get', as: 'inventory_page'
   
-  match '/users/:id/admin_on',   to: 'users#admin_on',    via: 'get', as: 'admin_on'
-  match '/users/:id/admin_off',  to: 'users#admin_off',   via: 'get', as: 'admin_off'
+  match '/users/:id/edit/on',   to: 'users#admin_on',    via: 'get', as: 'admin_on'
+  match '/users/:id/edit/off',  to: 'users#admin_off',   via: 'get', as: 'admin_off'
   
   get '/mers/tags/:tag',    to: 'mers#index',   as: :tag_mers
   get 'items/tags/:tag',    to: 'items#index',   as: :tag_items
