@@ -26,7 +26,6 @@ set :deploy_to, "/var/www/merseri.com"
 
 # Default value for :linked_files is []
 # set :linked_files, %w{config/database.yml}
-# set :linked_files, %w{config/database.yml config/database.yml}
 
 # Default value for linked_dirs is []
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
@@ -37,23 +36,27 @@ set :deploy_to, "/var/www/merseri.com"
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-
-
-
 namespace :deploy do
 
+  desc "Symlink shared config files"
+  task :symlink_config_files do
+      run "#{ try_sudo } ln -s #{ deploy_to }/shared/config/database.yml #{ current_path }/config/database.yml"
+  end
+
+  desc "Restart Passenger app"
+  task :restart do
+      run "#{ try_sudo } touch #{ File.join(current_path, 'tmp', 'restart.txt') }"
+  end
   
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
-      execute :touch, release_path.join('tmp/restart.txt')
+      # execute :touch, release_path.join('tmp/restart.txt')
     end
   end
-  
-  after :finishing, "deploy:cleanup"
-  
-  #after :publishing, :restart
+
+  after :publishing, :restart
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do

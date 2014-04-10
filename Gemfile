@@ -6,7 +6,7 @@ ruby '2.1.1'
 gem 'rails', '4.0.4'
 gem 'pg'
 gem 'rails_12factor'
-gem 'capistrano', '~> 3.1.0'
+gem 'capistrano-rails'
 
 # Use postgre as the database for Active Record
 group :development do

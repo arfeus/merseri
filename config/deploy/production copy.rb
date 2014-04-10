@@ -14,7 +14,7 @@ role :db,  %w{vuorenma@merseri.com}
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server 'merseri.com', user: 'vuorenma', roles: %w{web app db}
+server 'merseri.com', user: 'vuorenma', roles: %w{web app}
 
 
 
