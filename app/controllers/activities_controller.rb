@@ -22,17 +22,7 @@ class ActivitiesController < ApplicationController
   end
 
   def index
-    @my_activities = Activity.where("user_id = ?", current_user.id).uniq_by(&:name).to_a()
-    @all_activities = Activity.all.uniq_by(&:name).to_a()
-    @activities = @all_activities
-    @my_activities.each do |a|
-       @all_activities.each do |m|
-         if a.name == m.name
-           @index = @activities.index(m)
-           @activities.delete_at(@index)        
-         end        
-       end
-     end
+    @all_activities = Activity.where("user_id = ?", current_user.id)
   end
 
   def show
@@ -54,19 +44,24 @@ class ActivitiesController < ApplicationController
     redirect_to activities_path
   end
 
-  def my_act  
+  def on_frontpage  
     @activity = Activity.find(params[:id])
-    @activities = Activity.where("user_id = ? AND name = ?", current_user.id, @activity.name)
-    if !@activities.any?
-      @activity_cu = @activity.dup
-      @activity_cu.user_id = current_user.id
-      @activity_cu.save
+    if !@activity.active
+      if @activity.update_attribute :active, true
+        flash[:notice] = "Activity updated"
+        redirect_to action_path
+      end
+    else
+      if @activity.update_attribute :active, false
+        flash[:notice] = "Activity updated"
+      end
+      redirect_to activities_path
     end
-    @my_activities = Activity.where("user_id = ?", current_user.id) 
+    @my_activities = current_user.activities.all
   end
   
   def action
-    @my_activities = Activity.where("user_id = ?", current_user.id)
+    @active_activities = Activity.where("user_id = ? AND active = ?", current_user.id, true)
   end
   
   def history
@@ -81,6 +76,6 @@ class ActivitiesController < ApplicationController
     end
 
     def activity_params
-      params.require(:activity).permit(:name, :user_id)
+      params.require(:activity).permit(:name, :user_id, :active)
     end
 end

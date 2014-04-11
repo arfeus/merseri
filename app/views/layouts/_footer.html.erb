@@ -1,7 +1,7 @@
 
 	<% if current_user %>
 	<%= link_to "ACT", action_path, method: :get, class: "btn btn-primary" %>
-	<%= link_to "NOT", notes_page_path, method: :get, class: "btn btn-success" %>
+	<%= link_to "NOT", new_mer_path, method: :get, class: "btn btn-success" %>
 	<%= link_to "TIM", timeline_page_path, method: :get, class: "btn btn-warning" %>
 	<%= link_to "INV", inventory_page_path, method: :get, class: "btn btn-danger" %>
 	<% end %>

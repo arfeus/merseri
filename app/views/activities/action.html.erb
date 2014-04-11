@@ -3,7 +3,7 @@
   <h1>Select activity</h1>
 	<br  />
 	<div class="row"> 
-		<% @my_activities.each do |m| %> 
+		<% @active_activities.each do |m| %> 
 		<div class="col-md-4">
 			<%= link_to new_acting_path(activity_id: m.id), class: "btn btn-lg btn-warning btn-block" do %>
 			  <%= m.name %>

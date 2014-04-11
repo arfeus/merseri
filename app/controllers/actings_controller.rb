@@ -30,6 +30,9 @@ class ActingsController < ApplicationController
   def show
     @acting = Acting.find(params[:id])
     @activity = Activity.find(@acting.activity_id)
+    if @acting.start == @acting.stop
+      redirect_to on_acting_path
+    end
   end
 
   def update

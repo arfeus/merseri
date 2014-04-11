@@ -1,13 +1,13 @@
 <div class="container">
 	<br  />
-	<% if @activities.empty? %>
+	<% if @all_activities.empty? %>
 		<div class="row">  
 			<div class="col-md-6">
 				<%= link_to "new activity", new_activity_path, class: "btn btn-lg btn-primary btn-block" %>		
 	    </div>
 		</div>
 	<% else %>
-	  <% @activities.each do |a| %>
+	  <% @all_activities.each do |a| %>
 		  <% @user = User.find(a.user_id) %>
 	    <div class="panel panel-primary">
 		    <div class="panel-heading"></div>
@@ -15,11 +15,15 @@
 	        <div class="well">
 			      <%= a.name %>
 			    </div>
-	      <div class="panel-footer">
-				    <%= button_to "Add to myActivity", my_act_activity_path(a), method: :get, class: "btn btn-sm btn-success" %>				
+	      <div class="panel-footer">			
+				    <% if !a.active %>
+						  <%= button_to "Show on the frontpage", on_frontpage_activity_path(a), method: :get, class: "btn btn-sm btn-success" %>
+						<% else %>
+						  <%= button_to "Don't show on the frontpage", on_frontpage_activity_path(a), method: :get, class: "btn btn-sm btn-danger" %>						 
+						<% end %>			
         <br  />
 				<%= link_to 'Delete', activity_path(a), method: :delete, data: { Confirm: 'Are you sure?' } %>
-				| <%= link_to "Action", action_path, method: :get %>
+				| <%= link_to "Edit", edit_activity_path(a) %>
 	    </div>
 	  </div>
 	  </div>

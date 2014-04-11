@@ -1,11 +1,11 @@
 <div class="container">
-	<h2><%= @activity.name %> added to myActivity</h2>
+	<h3>"<%= @activity.name %>" added to the front page</h3>
 	<br  />
-	My activities are:
+	My all activities are:
 	<ul>
-	<% @my_activities.each do |my_activity| %>
+	<% @my_activities.each do |m| %>
 	<li>
-	<%= my_activity.name %>
+	<%= m.name %> | <%= link_to 'delete', activity_path(m), method: :delete, data: { Confirm: 'Are you sure?' } %>
 	</li>
 	<% end %>
 	</ul>

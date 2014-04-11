@@ -32,7 +32,7 @@ Merseri::Application.routes.draw do
   
   resources :activities do
     member do
-      get :my_act
+      get :on_frontpage
     end
   end
   
