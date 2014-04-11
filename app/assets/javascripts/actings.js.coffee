@@ -14,10 +14,12 @@ $(document).ready ->
 				        center: 'title',
 				        right: 'month,agendaWeek,agendaDay'
 				    },
-						
-				eventColor: 'darkGray',
-				eventTextColor: 'black'
-						
-				events: '/actings.json'
+		
+				eventTextColor: 'black',
 				
-    })
+				eventSources: [
+						'/actings.json',
+						'/mers.json'
+				]
+
+    });
