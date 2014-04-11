@@ -17,4 +17,40 @@
 //= require fullcalendar
 //= require gcal
 //= require_tree .
+
+$(document).ready(function () {		
+
+
+    // page is now ready, initialize the calendar...
+
+    $('#calendar').fullCalendar({
+        // put your options and callbacks here
+
+				header: {
+				        left: 'today,prev,next',
+				        center: 'title',
+				        right: 'month,agendaWeek,agendaDay'
+				    },
 		
+		
+				dayRender: function (date, cell) {
+				       var check = $.fullCalendar.formatDate(date,'yyyy-MM-dd');
+				                    var today = $.fullCalendar.formatDate(new Date(),'yyyy-MM-dd');
+				                    if (check < today) {
+				                        cell.css("background-color", "white");
+				                    }
+				                    if (check > today) {
+				                        cell.css("background-color", "lightgray");
+				                    }
+				},
+		
+				eventTextColor: 'black',
+				eventBorderColor: 'black',
+				
+				eventSources: [
+						'/actings.json',
+						'/mers.json'
+				]
+			});
+
+});
