@@ -5,5 +5,5 @@ json.array!(@actings) do |a|
 	json.start a.start
 	json.end a.stop
   json.url acting_url(a, format: :html)
-	json.backgroundColor 'green'
+	json.backgroundColor 'lightblue'
 end

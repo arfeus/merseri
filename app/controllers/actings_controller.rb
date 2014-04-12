@@ -16,7 +16,7 @@ class ActingsController < ApplicationController
   def create
     @acting = current_user.actings.new(acting_params)    
     if @acting.save
-      redirect_to action_path, notice: 'Acting was successfully created.'
+      redirect_to action_path, notice: 'Activity was successfully started.'
     else
       render action: 'new' 
     end
@@ -24,7 +24,7 @@ class ActingsController < ApplicationController
   
 
   def index
-    @actings = Acting.all
+    @actings = Acting.where("user_id = ? ", current_user.id)
   end
 
   def show

@@ -32,18 +32,6 @@ $(document).ready(function () {
 				        right: 'month,agendaWeek,agendaDay'
 				    },
 		
-		
-				dayRender: function (date, cell) {
-				       var check = $.fullCalendar.formatDate(date,'yyyy-MM-dd');
-				                    var today = $.fullCalendar.formatDate(new Date(),'yyyy-MM-dd');
-				                    if (check < today) {
-				                        cell.css("background-color", "white");
-				                    }
-				                    if (check > today) {
-				                        cell.css("background-color", "lightgray");
-				                    }
-				},
-		
 				eventTextColor: 'black',
 				eventBorderColor: 'black',
 				
@@ -51,6 +39,8 @@ $(document).ready(function () {
 						'/actings.json',
 						'/mers.json'
 				]
+				
+				
 			});
 
 });

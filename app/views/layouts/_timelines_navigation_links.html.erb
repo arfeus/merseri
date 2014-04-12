@@ -3,18 +3,8 @@
 <% if signed_in? %> 
 <li class="navitem <%= 'active' if current_page?(timeline_page_path) %>">
 	<%= link_to timeline_page_path do %>
-	 <span class="glyphicon glyphicon-pencil"></span>Time
+	 <span class="glyphicon glyphicon-pencil"></span>Calendar
   <% end %>
-</li>
-<li class="navitem <%= 'active' if current_page?(root_path) %>">
-	<%= link_to root_path do %>
-	  <span class="glyphicon glyphicon-search"></span>Search
-  <% end %>	
-</li>
-<li class="navitem <%= 'active' if current_page?(print_collection_path) %>">
-	<%= link_to print_collection_path do %>
-	  <span class="glyphicon glyphicon-th-list"></span>Collection
-	<% end %>	
 </li>
 	
 <%= render 'layouts/dropdown' %>
