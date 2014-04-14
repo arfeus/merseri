@@ -27,17 +27,25 @@ $(document).ready(function () {
         // put your options and callbacks here
 
 				header: {
-				        left: 'today,prev,next',
+				        left: 'prev,next today',
 				        center: 'title',
 				        right: 'month,agendaWeek,agendaDay'
 				    },
+						
+							
+						dayClick: function( startDate, endDate, allDay, jsEvent, view ) {
+							$('#calendar').fullCalendar( 'gotoDate', startDate ) ;
+								 alert(startDate);
+							},
+							
 		
 				eventTextColor: 'black',
 				eventBorderColor: 'black',
 				
 				eventSources: [
 						'/actings.json',
-						'/mers.json'
+						'/mers.json',
+						'/items.json'
 				]
 				
 				

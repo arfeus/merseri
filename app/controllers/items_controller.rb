@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index    
+    
     if params[:search] && current_user.admin?
       @items = Item.all.search(params[:search]).order('name DESC')
     elsif params[:tag] && current_user.admin?

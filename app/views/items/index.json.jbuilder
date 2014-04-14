@@ -1,4 +1,8 @@
-json.array!(@items) do |item|
-  json.extract! item, :id, :name, :description, :user_id, :set_time, :alarm
-  json.url item_url(item, format: :json)
+json.array!(@items) do |i|
+  json.id i.id
+	json.allDay false
+  json.title "reminder"+i.name 
+	json.start i.set_time
+  json.url item_url(i)
+	json.backgroundColor 'red'
 end
