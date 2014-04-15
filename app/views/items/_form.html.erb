@@ -23,9 +23,8 @@
 		   <%= f.text_field :tag_list, class: "form-control" %>
 			 <br  />
 		    <%= f.label :"set reminder time:" %><br  />
-		    <%= f.datetime_select :set_time, class: "form-control" %>
-			<br  />
-			<div id='calendar_form'></div>
+				<%= f.text_field :set_time, id: "datepicker" %>
+
 			<br  />
 			<label class="checkbox pull-left">
 				<%= f.label "Alarm?" %>			

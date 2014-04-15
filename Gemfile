@@ -21,6 +21,7 @@ end
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'sprockets', '2.11.0'
+gem 'jquery-ui-sass-rails'
 
 # Use twitter bootstrap less stylesheet
 #gem "therubyracer"

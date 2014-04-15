@@ -19,6 +19,7 @@ class ItemsController < ApplicationController
       @items = current_user.items.tagged_with(params[:tag])
     elsif
       @items = current_user.items
+      @reminder_items = Item.where("user_id = ? AND alarm = ? ", current_user.id, true)
     end
   end
 
