@@ -38,9 +38,12 @@ class ActingsController < ApplicationController
   def update
     @acting = Acting.find(params[:id])
     @activity = Activity.find(@acting.activity_id)
-    @acting.stop = Time.now
-    if @acting.save
+    if @acting.stop == @acting.start
       @acting.stop = Time.now
+      @acting.stop.save
+    elsif
+      @acting.update(acting_params)
+      redirect_to @acting
     else
       render action: 'edit'
     end

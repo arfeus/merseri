@@ -65,7 +65,7 @@ class ActivitiesController < ApplicationController
   end
   
   def history
-    @actings_cu = Acting.where("user_id = ?", current_user.id)
+    @actings_cu = Acting.where("user_id = ?", current_user.id).order('start DESC')
   end
 
   
