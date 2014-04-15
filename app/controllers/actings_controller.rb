@@ -33,6 +33,16 @@ class ActingsController < ApplicationController
     if @acting.start == @acting.stop
       redirect_to on_acting_path
     end
+    
+    duration_sec = @acting.stop - @acting.start
+    seconds = duration_sec % 60
+    minutes = (duration_sec / 60) % 60
+    hours = duration_sec / (60 * 60) % 60
+    days = (duration_sec / (60 * 60 *24)) % 24
+
+    @duration = format("%02d days %02d hrs %02d mins", days, hours, minutes)
+    
+    
   end
 
   def update

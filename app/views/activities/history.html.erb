@@ -6,7 +6,7 @@
 	    <tr>
 	      <th>Activity....................</th>
 	      <th>started...........</th>
-	      <th>duration.................</th>
+	      <th>stopped...........</th>
 	      <th></th>
 	      <th></th>
 				<th></th>
@@ -18,7 +18,7 @@
 	      <tr>
 	        <td><%= Activity.find(a.activity_id).name %></td>
 	        <td><%= a.start.to_formatted_s(:short) %></td>
-					<td><%= Time.at(a.stop - a.start).utc.strftime("%H hrs %M mins %S s") %></td>
+					<td><%= a.stop.to_formatted_s(:short) %></td>
 	        <td><%= link_to 'Show', acting_path(a) %></td>
 	        <td> |<%= link_to 'Edit', edit_acting_path(a) %></td>
 	        <td> |<%= link_to 'Destroy', acting_path(a), method: :delete, data: { confirm: 'Are you sure?' } %></td>

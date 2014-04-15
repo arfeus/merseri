@@ -1,10 +1,11 @@
 <div class="container">
 	<br  />	
+	<h3><%= @activity.name %></h3>
 	<br  />
-	<h3><%= @activity.name %> started at <%= @acting.start %></h3>
-	<h3><%= @activity.name %> stopped at <%= @acting.stop %></h3>
+	<h4>started at <%= @acting.start %></h4>
+	<h4>stopped at <%= @acting.stop %></h4>
 	<br  />
-	<h2><%= @activity.name %> duration was <%= Time.at(@acting.stop - @acting.start).utc.strftime("%H:%M:%S") %></h2>
+	<h3>duration was <%= @duration %></h3>
 |<%= link_to 'edit', edit_acting_path(@acting) %> | <%= link_to 'Delete', acting_path(@acting),
 			  	method: :delete, data: { Confirm: 'Are you sure?' } %>
 
