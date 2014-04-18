@@ -1,3 +1,7 @@
+User: <%= User.find(@acting.user_id).name %>
+<br  />
+
+
 <%= form_for(@acting) do |f| %>
   <% if @acting.errors.any? %>
     <div id="error_explanation">
@@ -12,13 +16,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
     <%= f.label :activity_id %><br>
-    <%= f.number_field :activity_id %>
+    <%= f.collection_select(:activity_id, Activity.all, :id, :name) %>
   </div>
+
 
   <div class="field">
     <%= f.label :start %><br>
@@ -29,6 +30,6 @@
     <%= f.text_field :stop %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Update", class: "btn btn-md btn-primary"  %>
   </div>
 <% end %>

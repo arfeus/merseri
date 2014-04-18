@@ -1,29 +1,12 @@
-<h1>Listing actings</h1>
+<% provide(:title, 'All actings') %>
+<div class="container">
+<h1>Activities</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Activity</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<%= will_paginate %>
 
-  <tbody>
-    <% @actings.each do |acting| %>
-      <tr>
-        <td><%= acting.user_id %></td>
-        <td><%= acting.activity_id %></td>
-        <td><%= link_to 'Show', acting %></td>
-        <td><%= link_to 'Edit', edit_acting_path(acting) %></td>
-        <td><%= link_to 'Destroy', acting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<ul class="users">
+  <%= render @actings %>
+</ul>
 
-<br>
-
-<%= link_to 'Action', action_path %>
+<%= will_paginate %>
+</div>

@@ -24,7 +24,7 @@ class ActingsController < ApplicationController
   
 
   def index
-    @actings = Acting.where("user_id = ? ", current_user.id)
+    @actings = Acting.where("user_id = ? ", current_user.id).order('created_at DESC').paginate(page: params[:page], per_page: 10)
   end
 
   def show
@@ -50,7 +50,7 @@ class ActingsController < ApplicationController
     @activity = Activity.find(@acting.activity_id)
     if @acting.stop == @acting.start
       @acting.stop = Time.now
-      @acting.stop.save
+      @acting.save
     elsif
       @acting.update(acting_params)
       redirect_to @acting

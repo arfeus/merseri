@@ -1,0 +1,5 @@
+<li>
+	<bold><%= Activity.find(acting.activity_id).name %></bold> started at <%= acting.start %> stopped at <%= acting.stop %>, <%=distance_of_time_in_words(acting.stop-acting.start) %>
+<%= link_to 'Show', acting %> | <%= link_to 'Edit', edit_acting_path(acting) %> | <%= link_to 'Delete', acting_path(acting),
+			  	method: :delete, data: { Confirm: 'Are you sure?' } %>
+</li>

@@ -1,12 +1,6 @@
 <div class="container">
 	<br  />	
-	<h3><%= @activity.name %></h3>
-	<br  />
-	<h4>started at <%= @acting.start %></h4>
-	<h4>stopped at <%= @acting.stop %></h4>
-	<br  />
-	<h3>duration was <%= @duration %></h3>
-|<%= link_to 'edit', edit_acting_path(@acting) %> | <%= link_to 'Delete', acting_path(@acting),
-			  	method: :delete, data: { Confirm: 'Are you sure?' } %>
-
+	<p><%= @activity.name %> started at <%= @acting.start %> stopped at <%= @acting.stop %> duration was <%= @duration %>
+|<%= link_to 'Edit', edit_acting_path(@acting) %> | <%= link_to 'Delete', acting_path(@acting),
+			  	method: :delete, data: { Confirm: 'Are you sure?' } %></p>
 </div>
