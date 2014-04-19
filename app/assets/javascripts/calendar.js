@@ -33,19 +33,19 @@ $(document).ready(function () {
               
 							 
 							$("#dialog").dialog({
-							            
+							           
 							                title: "New",
 															height: 100,
 															width: 350,
 							                modal: true,
 					                    buttons: {
-																
-						                    "Start activity": function () {   
-										              var url = 'http://localhost:3000/action';
+																															
+						                    "Start activity": function () {   																
+										              var url = location.protocol + '//' + location.host + '/action';
 										 							window.location = url;             
 						                    },
 							                  "Create a note": function () {     
-											            var url = 'http://localhost:3000/mers/new';
+											            var url = location.protocol + '//' + location.host + '/mers/new';
 											 					  window.location = url;      
 							                  },
 																CLOSE: function() {
