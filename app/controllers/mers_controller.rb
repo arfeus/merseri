@@ -38,6 +38,10 @@ class MersController < ApplicationController
   def show
     @mer = Mer.find(params[:id])
     @user = User.find(@mer.user_id)
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @mer }
+    end
   end
   
   def index    

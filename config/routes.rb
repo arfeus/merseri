@@ -6,7 +6,6 @@ Merseri::Application.routes.draw do
 
   resources :actings
   
-
   resources :users do
     member do
       get :mers
@@ -35,9 +34,7 @@ Merseri::Application.routes.draw do
       get :on_frontpage
     end
   end
-  
-  
-  
+   
   root  'welcome#welcome'
   match '/signup',                    to: 'users#new',                 via: 'get'
   match '/signin',                    to: 'sessions#new',              via: 'get'
@@ -70,6 +67,24 @@ Merseri::Application.routes.draw do
   get '/mers/tags/:tag',    to: 'mers#index',   as: :tag_mers
   get 'items/tags/:tag',    to: 'items#index',   as: :tag_items
 
+  
+  
+  # Json format default and API namespace e.g. example.com/api/v1/tasks
+  # If you want to use sub-domain add "namespace :api, :path => "", :constraints => {:subdomain => "api"} do" and use api.example.com/v1/tasks.
+  
+  
+  namespace :api, :defaults => {format: :json} do
+    namespace :v1 do
+      /devise_scope :user do
+        post 'registrations' => 'registrations#create', :as => 'register'
+        post 'sessions' => 'sessions#create', :as => 'login'
+        delete 'sessions' => 'sessions#destroy', :as => 'logout'
+      end/
+      get 'tasks' => 'tasks#index', as: 'tasks'
+    end
+  end
+  
+  
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

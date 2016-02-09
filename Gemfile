@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-ruby '2.1.1'
+ruby '2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.4'
+gem 'rails', '4.2.5'
 gem 'pg'
 gem 'rails_12factor'
 gem 'capistrano-rails'
@@ -20,8 +20,8 @@ end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 3.1.1'
-gem 'sprockets', '2.11.0'
-gem 'jquery-ui-sass-rails'
+gem 'sprockets'
+
 
 # Use twitter bootstrap less stylesheet
 #gem "therubyracer"
@@ -39,6 +39,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -64,6 +66,7 @@ gem 'bcrypt-ruby', '~> 3.1.0'
 
 # Adam Shaw's excellent fullcalendar jquery plugin
 gem 'fullcalendar-rails'
+gem 'momentjs-rails'
 
 # Use unicorn as the app server
 # gem 'unicorn'
